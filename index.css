@@ -62,7 +62,7 @@ table th {
 
 pre,
 code {
-  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  font-family: Courier, monospace;
   line-height: 1.5;
 }
 pre {
@@ -88,7 +88,7 @@ pre {
 /* Header */
 .home {
   padding: 0 1rem;
-  float: left;
+  float: right;
   margin: 1rem 0; /* 16px /16 */
   font-size: 1em; /* 16px /16 */
 }
