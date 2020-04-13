@@ -1,4 +1,7 @@
-# github-upload
+# Link to the repo #
+[My demo html] (https://ironnysh.github.io/github-upload/)
+
+## github-upload via Terminal ##
 Step 3: Make the move
 
 Having a project already stored locally enables you to move it to GitHub rather quickly. The following activity provides instructions to move your local project to GitHub using various tools. Select the tool you are most comfortable with and get importing 😄.
