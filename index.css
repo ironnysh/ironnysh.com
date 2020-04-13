@@ -132,6 +132,15 @@ section {
 
 }
 
+div.tmpl-post {
+	border-bottom: 1px solid #333;
+	
+}
+
+main.tmpl-post {
+	margin-top: 3em;
+}
+
 /* Typography */
 /* varela-round-regular - latin_hebrew */
 @font-face {
@@ -139,8 +148,7 @@ section {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Varela Round Regular'), local('VarelaRound-Regular'),
-       url('/fonts/varela-round-v12-latin_hebrew-regular.woff2') format('woff2'); /* Chrome 26+, Opera 23+, Firefox 39+ */
+  src: url('/fonts/varela-round-v12-latin_hebrew-regular.woff2') format('woff2');
 }
 
 blockquote, .wp-block-quote {
