@@ -7,6 +7,7 @@
   --navy: #17050F;
   --blue: #082840;
   --white: #fff;
+  --sand: #f6f5f2;
 }
 * {
   box-sizing: border-box;
@@ -16,9 +17,9 @@ body {
   direction: rtl;
   padding: 0;
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: Varela Round, system-ui, sans-serif;
   color: var(--darkgray);
-  background-color: var(--white);
+  background-color: var(--sand);
 }
 p:last-child {
   margin-bottom: 0;
@@ -65,54 +66,35 @@ code {
   font-family: Courier, monospace;
   line-height: 1.5;
 }
-pre {
-  font-size: 14px;
-  line-height: 1.375;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
-  tab-size: 2;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-  padding: 1em;
-  margin: .5em 0;
-  background-color: #f6f6f6;
-}
 
 /* Header */
 .home {
-  padding: 0 1rem;
-  float: right;
+  float: left;
   margin: 1rem 0; /* 16px /16 */
-  font-size: 1em; /* 16px /16 */
 }
+
 .home :link:not(:hover) {
   text-decoration: none;
 }
 
 /* Nav */
-.nav {
+nav {
   padding: 0;
   list-style: none;
-  float: left;
-  margin-left: 1em;
+  float: righ;
+  background: red;
+  margin: 1rem 0; /* 16px /16 */
 }
 .nav-item {
   display: inline-block;
-  margin-right: 1em;
+  margin-left: 1em;
 }
 .nav-item a[href]:not(:hover) {
   text-decoration: none;
 }
 .nav-item-active {
   font-weight: 700;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Posts list */
@@ -121,23 +103,14 @@ pre {
   padding: 0;
 }
 .postlist-item {
-  counter-increment: start-from -1;
+
 }
-.postlist-item:before {
-  display: inline-block;
-  pointer-events: none;
-  content: "" counter(start-from, decimal-leading-zero) ". ";
-  line-height: 100%;
-  text-align: right;
-}
-.postlist-date,
-.postlist-item:before {
+
+.postlist-date {
   font-size: 0.8125em; /* 13px /16 */
   color: var(--darkgray);
 }
-.postlist-date {
-  word-spacing: -0.5px;
-}
+
 .postlist-link {
   display: inline-block;
   padding: 0.25em 0.1875em; /* 4px 3px /16 */
@@ -160,6 +133,16 @@ section {
 }
 
 /* Typography */
+/* varela-round-regular - latin_hebrew */
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Varela Round Regular'), local('VarelaRound-Regular'),
+       url('/fonts/varela-round-v12-latin_hebrew-regular.woff2') format('woff2'); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+
 blockquote, .wp-block-quote {
 	color: #6a6969;
 	position: relative;
@@ -178,9 +161,6 @@ blockquote:before {
 }
 
 /* Elements */
-section {
-  padding: 2rem 20%;
-}
 
 section:nth-child(2) {
   background: purple;
@@ -189,8 +169,14 @@ section:nth-child(2) {
   padding: 10rem 20%;
 }
 
-body {
-  margin: 0;
+figure {
+  border: 1px solid blue;
+  margin: 1em 0;
+}
+
+figcaption {
+  color: var(--gray);
+  float: left;
 }
 
 hr {
@@ -200,7 +186,7 @@ hr {
 	margin: 2rem 0;
 }
 
-.entry-content hr,
+.tmpl-post hr,
 hr.styled-separator {
 	background: linear-gradient(to left, currentColor calc(50% - 16px), transparent calc(50% - 16px), transparent calc(50% + 16px), currentColor calc(50% + 16px));
 	background-color: transparent !important;
@@ -209,13 +195,13 @@ hr.styled-separator {
 	position: relative;
 }
 
-.entry-content hr:not(.has-background),
+.tmpl-post hr:not(.has-background),
 hr.styled-separator {
-	color: #ccc;
+  color: var(--gray);
 }
 
-.entry-content hr::before,
-.entry-content hr::after,
+.tmpl-post hr::before,
+.tmpl-post hr::after,
 hr.styled-separator::before,
 hr.styled-separator::after {
 	background: currentColor;
@@ -227,12 +213,12 @@ hr.styled-separator::after {
 	width: 0.1rem;
 }
 
-.entry-content hr::before,
+.tmpl-post hr::before,
 hr.styled-separator::before {
 	left: calc(50% - 0.5rem);
 }
 
-.entry-content hr::after,
+.tmpl-post hr::after,
 hr.styled-separator::after {
 	right: calc(50% - 0.5rem);
 }
@@ -241,10 +227,9 @@ hr.styled-separator::after {
 .tag {
   display: inline-block;
   vertical-align: text-top;
-  text-transform: uppercase;
   font-size: 0.625em; /* 10px /16 */
   padding: 2px 4px;
-  margin-left: 0.8em; /* 8px /10 */
+  margin-right: 0.8em; /* 8px /10 */
   background-color: var(--red);
   color: var(--white);
   border-radius: 0.25em; /* 3px /12 */
