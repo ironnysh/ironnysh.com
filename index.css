@@ -12,6 +12,16 @@
 * {
   box-sizing: border-box;
 }
+
+/* varela-round-regular - latin_hebrew */
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/varela-round-v12-latin_hebrew-regular.woff2') format('woff2');
+}
+
 html,
 body {
   direction: rtl;
@@ -142,14 +152,6 @@ main.tmpl-post {
 }
 
 /* Typography */
-/* varela-round-regular - latin_hebrew */
-@font-face {
-  font-family: 'Varela Round';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/varela-round-v12-latin_hebrew-regular.woff2') format('woff2');
-}
 
 blockquote, .wp-block-quote {
 	color: #6a6969;
