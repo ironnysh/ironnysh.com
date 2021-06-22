@@ -1,106 +1,148 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="he">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>רוני שני | תרגום • עריכה</title>
-  <link rel="preload" as="font" type="font/woff2" href="varela-round-hebrew.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="varela-round-latin.woff2" crossorigin>
-	<style>
-	  :root {
-      --sfont: ui-sans-serif, -apple-system, system-ui;
-      --txt-color: hsl(0 0% 20%);
-      --accent-color: hsl(315 85% 100%);
-      --bg-color: hsl(0 0% 95%);
-    }
-	  *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>רוני שני | תרגום • עריכה</title>
+		<link
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href="varela-round-hebrew.woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href="varela-round-latin.woff2"
+			crossorigin
+		/>
+		<meta name="color-scheme" content="light dark">
+		<style>
+			:root {
+				--sfont: ui-sans-serif, -apple-system, system-ui;
+				--h: 0;
+				--s: 0%;
+				--l: 20%;
+				--txt-color: hsl(var(--h) var(--s) var(--l));
+				--bg-color: hsl(var(--h) var(--s) 95%);
+				--dark-color: hsl(var(--h) var(--s) 30%);
+				--light-color: hsl(var(--h) var(--s) 80%);
+				--accent-color: hsl(325 95% 40%);
+			}
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				padding: 0;
+				margin: 0;
+			}
 
-    @font-face {
-      font-family: "Varela Round";
-      src: url("varela-round-hebrew.woff2") format("woff2");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-      unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
-    }
-    @font-face {
-      font-family: "Varela Round";
-      src: url("varela-round-latin.woff2") format("woff2");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-		body {
-			font-family: "Varela Round", var(--sfont);
-			line-height: 1.5;
-			color: var(--txt-color);
-			background-color: var(--bg-color);
-			margin: 0 auto;
-			min-height: 100vh;
-			padding: 0;
-			border-block-start: thick solid hsl(0, 0%, 33%);
-		}
-		header {
-			margin: 2rem auto 1.5rem;
-			width: 70%;
-			height: 100%;
-			text-align: center;
-		}
-		a {
-			color: var(--accent-color);
-		}
-		p {
-			/*padding-block-end: 10px;*/
-		}
-		h3 {
-			/*margin: 0;*/
-		}
-		article {
-			width: 50%;
-			vertical-align: top;
-			margin: 1.5rem auto;
-			text-align: justify;
-			padding-block-end: 1rem;
-		}
-		.english {
-			direction: ltr;
-			float: left;
-		}
-		.hebrew {
-			float: right;
-			border-block-left: 1px solid #999;
-		}
-	</style>
-</head>
-<body>
-	<header>
-		<h3>רוני שני</h3>
-		<p>תרגום • עריכה
-		<p>Translations • Editing
-		<p><a href="#" alt="Please copy the email address and paste it in the To field of a freshly composed message">ronny [at] ironnysh.com</a>
-		</p>
-	</header>
+			@font-face {
+				font-family: "Varela Round";
+				src: url("varela-round-hebrew.woff2") format("woff2");
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+				unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
+			}
+			@font-face {
+				font-family: "Varela Round";
+				src: url("varela-round-latin.woff2") format("woff2");
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+					U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+					U+2212, U+2215, U+FEFF, U+FFFD;
+			}
+			html {
+				scroll-behavior: smooth;
+			}
+			body {
+				font-family: "Varela Round", var(--sfont);
+				line-height: 1.5;
+				color: var(--txt-color);
+				background-color: var(--bg-color);
+				margin: 0 auto;
+				padding: 0;
+				min-height: 100vh;
+				border-block-start: thick solid var(--dark-color);
+			}
+			header {
+				display: grid;
+				place-items: center;
+				place-content: center;
+				gap: .5rem;
+			}
+			a {
+				color: var(--accent-color);
+			}
+			header p:last-of-type {
+				margin-block-start: 1rem;
+			}
+			h1 {
+				margin: 1rem auto;
+				font-weight: 400;
+				font-size: 1.8rem;
+			}
+			main {
+				display: grid;
+				grid-auto-flow: column;
+				padding: 1rem;
+				margin: 0 auto;
+				max-width: 60ch;
+			}
+			article {
+				text-align: justify;
+				padding-inline-end: 1rem;
+			}
+			article:first-of-type {
+				border-inline-end: thin solid var(--light-color);
+			}
+			article:last-of-type {
+				direction: initial;
+			}
+
+			@media (prefers-color-scheme: dark) {
+  			body {
+					background-color: var(--txt-color);
+					color: var(--light-color);
+					/* filter: contrast(100%) invert(100%) brightness(90%); */
+				}
+				a { color: hsl(325 95% 75%); }
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>רוני שני</h3>
+			<p>תרגום • עריכה
+			<p>Translations • Editing
+			<p>
+				<a
+					href="mailto:ronny@ironnysh.com&subject=פנייה%20מהאתר"
+					aria-label="Please copy the email address and paste it in the To field of a freshly composed message"
+					>ronny [at] ironnysh.com</a
+				>
+			</p>
+		</header>
 		<main>
-		<article class="english">
-		My name is Ronny Shani, and I am a freelance translator and editor. A former tech, media, and culture journalist,
-		I’ve written and edited in various online and print publications. Among my clients are multinational corporations,
-		public institutions, as well as SMBs from a wide range of sectors.
-		</article>
-		<article class="hebrew">
-			שמי רוני שני ואני עורכת ומתרגמת עצמאית. תחומי העניין שלי כוללים טכנולוגיה, תקשורת, תרבות ומה שביניהם. במהלך השנים כתבתי,
-			ערכתי ותרגמתי באתרים, עיתונים ומגזינים מודפסים ומקוונים, בהם ידיעות אחרונות, כלכליסט, גלובס, העין השביעית, מסע אחר ועוד.
-			בין לקוחותי: תאגידים בינלאומיים, מוסדות ציבור ועסקים קטנים ממגזרים שונים.
-		</article>
-	</main>
-</body>
+			<article>
+				עורכת ומתרגמת עצמאית. תחומי העניין שלי כוללים טכנולוגיה, תקשורת, תרבות
+				ומה שביניהם. במהלך השנים כתבתי, ערכתי ותרגמתי באתרים, עיתונים ומגזינים
+				מודפסים ומקוונים, בהם ידיעות אחרונות, כלכליסט, גלובס, העין השביעית, מסע
+				אחר ועוד. בין לקוחותי: תאגידים בינלאומיים, מוסדות ציבור ועסקים ממגזרים
+				שונים.
+			</article>
+			<article>
+				My name is Ronny Shani, and I am a freelance translator and editor. A
+				former tech, media, and culture journalist, I’ve written and edited in
+				various online and print publications. Among my clients are
+				multinational corporations, public institutions, as well as SMBs from a
+				wide range of sectors.
+			</article>
+		</main>
+	</body>
 </html>
