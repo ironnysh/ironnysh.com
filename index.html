@@ -27,10 +27,35 @@
 				--l: 20%;
 				--txt-color: hsl(var(--h) var(--s) var(--l));
 				--bg-color: hsl(var(--h) var(--s) 95%);
-				--dark-color: hsl(var(--h) var(--s) 30%);
+				--dark-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));/*30%*/
 				--light-color: hsl(var(--h) var(--s) 80%);
 				--accent-color: hsl(325 95% 40%);
 			}
+			
+			button {
+  --h: 100;
+  --s: 50%;
+  --l: 50%;
+  --a: 1;
+
+  background: hsl(var(--h) var(--s) var(--l) / var(--a));
+}
+button:hover { /* Change the lightness on hover */
+  --l: 75%;
+}
+button:focus { /* Change the saturation on focus */
+  --s: 75%;
+}
+button[disabled] {  /* Make look disabled */
+  --s: 0%;
+  --a: 0.5;
+}
+			
+
+			
+
+			
+			
 			*,
 			*::before,
 			*::after {
