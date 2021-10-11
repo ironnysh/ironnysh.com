@@ -105,7 +105,11 @@
 			}
 			
 			li {
-				margin-inline-start: var(--md-spacer);
+				margin-inline-start: calc(var(--sm-spacer) * 3);
+			}
+			
+			li + li {
+				margin-block-end: var(--md-spacer);
 			}
 
 			@media (prefers-color-scheme: dark) {
@@ -133,16 +137,16 @@
 		</header>
 		<main>
 			<article>
-A few writing samples available for download (PDFs) or online reading:
-				<ul>
-					<li><a href="/portfolio/digitalisation-the_covid-19_vaccine.pdf" download>Digitalisation:
-					The Covid-19 Vaccine We’ve All Been Waiting For</a>
-					<p>A white paper for a London-based company offering "The GitHub for the Construction Industry." My work included interviews with C-level employees, independent research, transcribing interviews with clients, and data compilation.</p></li>
-					<li><a href="/portfolio/composition.pdf" download>Composition</a>
-					<p>A long-form essay commissioned by the curator of The Crystal Palace & The Temple of Doom, a group exhibition featured at the Petach Tikva Museum of Art.</p></li>
-					<li><a href="/portfolio/terminal_49-dkaravan.pdf" download>"Why can't we use a flower?"</a>
-					<p>An Interview with the late sculptor and spatial artist Dani Karavan. The article focused on his Memorial to the Sinti and Roma Victims of National Socialism in Berlin.</p></li>
-				</ul>
+				<p>A few writing samples available for download (PDFs) or online reading:</p>
+					<ul>
+						<li><a href="/portfolio/digitalisation-the_covid-19_vaccine.pdf" download>Digitalisation:
+						The Covid-19 Vaccine We’ve All Been Waiting For</a>
+						<p>A white paper for a London-based company offering "The GitHub for the Construction Industry." My work included interviews with C-level employees, independent research, transcribing interviews with clients, and data compilation.</p></li>
+						<li><a href="/portfolio/composition.pdf" download>Composition</a>
+						<p>A long-form essay commissioned by the curator of The Crystal Palace & The Temple of Doom, a group exhibition featured at the Petach Tikva Museum of Art.</p></li>
+						<li><a href="/portfolio/terminal_49-dkaravan.pdf" download>"Why can't we use a flower?"</a>
+						<p>An Interview with the late sculptor and spatial artist Dani Karavan. The article focused on his Memorial to the Sinti and Roma Victims of National Socialism in Berlin.</p></li>
+					</ul>
 			</article>
 		</main>
 	</body>
