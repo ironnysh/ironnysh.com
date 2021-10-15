@@ -1,0 +1,8 @@
+
+vscode:
+  extensions:
+    - ritwickdey.liveserver
+ports:
+  - port: 8080
+    onOpen: open-browser
+    visibility: private
