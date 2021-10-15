@@ -3,6 +3,6 @@ vscode:
   extensions:
     - ritwickdey.liveserver
 ports:
-  - port: 8080
+  - port: 3000
     onOpen: open-browser
     visibility: private
