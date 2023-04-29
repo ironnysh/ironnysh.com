@@ -19,7 +19,6 @@
 				--l: 20%;
 				--txt-color: hsl(var(--h) var(--s) var(--l));
 				--bg-color: hsl(var(--h) var(--s) calc(var(--l) + 75%));
-				--light-color: hsl(var(--h) var(--s) calc(var(--l) + 60%));
 				--accent-color: hsl(var(--h) 95% calc(var(--l) + 20%));
 				--sm-spacer: .5rem;
 				--md-spacer: calc(var(--sm-spacer) * 2);
@@ -76,10 +75,6 @@
 				color: var(--accent-color);
 			}
 
-			header p:last-of-type {
-				margin-block-start: var(--md-spacer);
-			}
-
 			h1 {
 				margin: 0;
 				font-weight: 400;
@@ -119,13 +114,18 @@
 			}
 
 			@media (prefers-color-scheme: dark) {
-				:is(body, header) {
+				body {
 					background-color: var(--txt-color);
-					color: var(--light-color);
+					color: hsl(var(--h) var(--s) calc(var(--l) + 60%));
 					/* filter: contrast(100%) invert(100%) brightness(90%); */
 				}
 
-				a {
+				header {
+					background-color: hsl(var(--h) var(--s) calc(var(--l) + 60%));
+					color: var(--txt-color);
+				}
+
+				a:not(header) {
 					--accent-color: hsl(var(--h) 95% calc(var(--l) + 55%));
 					color: var(--accent-color);
 				}
