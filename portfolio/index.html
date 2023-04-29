@@ -67,7 +67,7 @@
 				place-items: baseline;
 				place-content: center;
 				gap: var(--sm-spacer);
-				color: var(--txt-color);
+				color: var(--bg-color);
 				background-color: var(--txt-color);
 				clip-path: polygon(0 0%, 100% 0, 100% 80%, 0 100%);
 				padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
@@ -120,7 +120,7 @@
 			}
 
 			@media (prefers-color-scheme: dark) {
-				body {
+				:is(body, header) {
 					background-color: var(--txt-color);
 					color: var(--light-color);
 					/* filter: contrast(100%) invert(100%) brightness(90%); */
