@@ -1,28 +1,16 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="he">
+<html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>רוני שני | תרגום • עריכה</title>
-		<meta name="description" content="Writer, translator, and editor. Great believer in the Oxford comma" />
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href="assets/varela-round-hebrew.woff2"
-			crossorigin
-		/>
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href="assets/varela-round-latin.woff2"
-			crossorigin
-		/>
+		<title>Ronny Shani • Writer & Web Maker</title>
+		<meta name="description"
+			content="Writer, editor, and web maker. Great believer in the Oxford comma. Check out my writing samples" />
+		<meta name="generator" content="Handmade by Ronny Shani">
+		<link rel="preload" as="font" type="font/woff2" href="assets/varela-round-latin.woff2" crossorigin />
 		<meta name="color-scheme" content="light dark">
-			<meta name="theme-color" media="(prefers-color-scheme: light)" content="hsl(325 0% 95%)">
-							<meta name="theme-color" media="(prefers-color-scheme: dark)" content="hsl(325 95% 40%)">
-		<link rel="canonical" href="http://www.ironnysh.com">
+		<link rel="canonical" href="http://www.ironnysh.com/">
 		<style>
 			:root {
 				--sfont: ui-sans-serif, -apple-system, system-ui;
@@ -48,15 +36,6 @@
 
 			@font-face {
 				font-family: "Varela Round";
-				src: url("assets/varela-round-hebrew.woff2") format("woff2");
-				font-weight: 400;
-				font-style: normal;
-				font-display: swap;
-				unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
-			}
-
-			@font-face {
-				font-family: "Varela Round";
 				src: url("assets/varela-round-latin.woff2") format("woff2");
 				font-weight: 400;
 				font-style: normal;
@@ -68,6 +47,7 @@
 
 			html {
 				scroll-behavior: smooth;
+				block-size: 100%;
 			}
 
 			body {
@@ -77,7 +57,7 @@
 				background-color: var(--bg-color);
 				margin: 0 auto;
 				padding: 0;
-				min-height: 100vh;
+				min-block-size: 100%;
 				border-block-start: thick solid var(--dark-color);
 			}
 
@@ -86,6 +66,9 @@
 				place-items: center;
 				place-content: center;
 				gap: var(--sm-spacer);
+				color: var(--bg-color);
+				background-color: var(--accent-color);
+				clip-path: polygon(0 0%, 100% 0, 100% 80%, 0 100%);
 			}
 
 			a {
@@ -102,31 +85,32 @@
 				font-size: 1.8rem;
 			}
 
+			h2 {
+				margin: var(--md-spacer) 0;
+				font-size: 1.1rem;
+			}
+
 			main {
 				display: grid;
 				grid-auto-flow: column;
 				padding: var(--md-spacer);
 				margin: 0 auto;
 				max-width: 60ch;
-				/* background: crimson;
-			  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%); */
 			}
 
 			article {
+				display: grid;
+				gap: var(--sm-spacer);
 				text-align: justify;
-				padding-inline-end: var(--md-spacer);
 			}
 
-			article:first-of-type {
-				border-inline-end: thin solid var(--light-color);
-			}
-
-			article:last-of-type {
-				direction: ltr;
+			li {
+				margin-inline: calc(var(--sm-spacer) * 4);
+				margin-block-end: var(--md-spacer);
 			}
 
 			@media (prefers-color-scheme: dark) {
-  			body {
+				body {
 					background-color: var(--txt-color);
 					color: var(--light-color);
 					/* filter: contrast(100%) invert(100%) brightness(90%); */
@@ -138,37 +122,57 @@
 				}
 			}
 		</style>
-		<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><style>svg{background:white;}circle{fill:black;}@media(prefers-color-scheme:dark){svg{background:black;}circle{fill:white;}}</style><circle cx='50' cy='50' r='50'/></svg>">
+		<link rel="icon"
+			href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><style>svg{background:white;}circle{fill:black;}@media(prefers-color-scheme:dark){svg{background:black;}circle{fill:white;}}</style><circle cx='50' cy='50' r='50'/></svg>">
 	</head>
+
 	<body>
 		<header>
-			<h1>רוני שני</h1>
-			<p>תרגום • עריכה
-			<p><a href="/portfolio" aria-label="Click to explore my writing portfolio">Writer</a> • Translator • Editor
-			<p>
-				<a href="mailto:ronny@ironnysh.com?subject=פנייה%20מהאתר" aria-label="Please copy the email address and paste it in the To field of a freshly composed message">ronny@ironnysh.com</a>
+			<h1>Ronny Shani</h1>
+			<p>Writer • Editor | 
+				<a href="mailto:ronny@ironnysh.com?subject=Found%20your%20site"
+					aria-label="Please copy my email address (ronny@ironnysh.com), paste it in the To field of a freshly composed message, and hit send!">ronny@ironnysh.com</a>
 			</p>
 		</header>
 		<main>
 			<article>
-				עורכת ומתרגמת עצמאית. תחומי העניין שלי כוללים טכנולוגיה, תקשורת, תרבות
-				ומה שביניהם. במהלך השנים כתבתי, ערכתי ותרגמתי באתרים, עיתונים ומגזינים
-				מודפסים ומקוונים, בהם ידיעות אחרונות, כלכליסט, גלובס, העין השביעית, מסע
-				אחר ועוד. בין לקוחותי: תאגידים בינלאומיים, מוסדות ציבור ועסקים ממגזרים
-				שונים.
-			</article>
-			<article>
-				My name is Ronny Shani, and I am a freelance translator and editor. A
-				former tech, media, and culture journalist, I’ve written and edited in
-				various online and print publications. Among my clients are
-				multinational corporations, public institutions, as well as SMBs from a
-				wide range of sectors.
+				<p>I've written hundreds of guides, how-tos, tutorials, manuals, hardware and software reviews, and
+					magazine articles about various topics - mainly technology: from chips to apps and everything in
+					between.
+				<p>Having had the pleasure of interviewing and profiling fascinating people in tech, I consider every
+					writing assignment an opportunity to learn and grow.</p>
+				<h2>Writing Samples</h2>
+				<p>Articles I've written and edited for Project A can be found on the <a
+						href="https://insights.project-a.com">Insights blog</a>.</p>
+				<p>Technical writing and documentation samples <a href="http://github.com/ironnysh">are available on
+						Github</a>.
+				<p>The samples below demonstrate versatile writing styles and interests. Click the headline to download
+					the PDF or read online.</p>
+				<ul>
+					<li><a href="assets/digitalisation-the_covid-19_vaccine.pdf" download>Digitalisation: The
+							Covid-19 Vaccine We’ve All Been Waiting For</a>
+						<p>A white paper for a London-based company offering "GitHub for the Construction Industry." My work included interviews with C-level employees, independent research, transcribing interviews with clients, and data compilation.</p>
+					</li>
+					<li><a href="assets/terminal_49-dkaravan.pdf" download>"Why can't we use a flower?"</a>
+						<p>An Interview with the late sculptor and spatial artist Dani Karavan. The article focused on his Memorial to the Sinti and Roma Victims of National Socialism in Berlin.</p>
+					</li>
+					<li><a href="assets/composition.pdf" download>Composition</a>
+						<p>A long-form essay commissioned by the curator of The Crystal Palace & The Temple of Doom, a group exhibition featured at the Petach Tikva Museum of Art.</p>
+					</li>
+				</ul>
 			</article>
 		</main>
-		
+		<footer>
+			<p>If you're interested in getting to know me a little better, perhaps you'd like to take a look at
+				my
+				<a href="../assets/rss-subs.opml" download>RSS reading list</a> or <a
+					href="../assets/podcasts-subs.opml" download>podcasts I follow</a>. Click the links above to
+				download the relevant OPML file.
+			</p>
+		</footer>
 		<script>
-    console.log('Made with ♥ in Berlin by Ronny Shani', 'font-size: 12px; font-weight: bold; color: #fff; background-color: tomato; padding: 10px 16px; margin: 20px 0; border-radius: 4px;')
-</script>
+			console.log("%cMade with ♥ in Berlin by Ronny Shani", "font-size: 12px; font-weight: bold; color: #fff; background-color: tomato; padding: 10px 16px; margin: 20px 0; border-radius: 4px;");
+		</script>
 	</body>
-</html>
 
+</html>

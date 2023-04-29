@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Ronny Shani • Writer & Web Maker</title>
+		<meta name="description" content="Writer, editor, and web maker. Great believer in the Oxford comma. Check out my writing samples" />
+		<link rel="preload" as="font" type="font/woff2" href="assets/varela-round-hebrew.woff2" crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href="assets/varela-round-latin.woff2" crossorigin />
+		<meta name="color-scheme" content="light dark">
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="hsl(325 0% 95%)">
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="hsl(325 95% 40%)">
+		<link rel="canonical" href="http://www.ironnysh.com">
+		<style>
+			:root {
+				--sfont: ui-sans-serif, -apple-system, system-ui;
+				--h: 325;
+				--s: 0%;
+				--l: 20%;
+				--txt-color: hsl(var(--h) var(--s) var(--l));
+				--bg-color: hsl(var(--h) var(--s) calc(var(--l) + 75%));
+				--dark-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));
+				--light-color: hsl(var(--h) var(--s) calc(var(--l) + 60%));
+				--accent-color: hsl(var(--h) 95% calc(var(--l) + 20%));
+				--sm-spacer: .5rem;
+				--md-spacer: calc(var(--sm-spacer) * 2);
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				padding: 0;
+				margin: 0;
+			}
+
+			@font-face {
+				font-family: "Varela Round";
+				src: url("assets/varela-round-hebrew.woff2") format("woff2");
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+				unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
+			}
+
+			@font-face {
+				font-family: "Varela Round";
+				src: url("assets/varela-round-latin.woff2") format("woff2");
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+					U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+					U+2212, U+2215, U+FEFF, U+FFFD;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				font-family: "Varela Round", var(--sfont);
+				line-height: 1.5;
+				color: var(--txt-color);
+				background-color: var(--bg-color);
+				margin: 0 auto;
+				padding: 0;
+				min-height: 100vh;
+				border-block-start: thick solid var(--dark-color);
+			}
+
+			header {
+				display: grid;
+				place-items: center;
+				place-content: center;
+				gap: var(--sm-spacer);
+			}
+
+			a {
+				color: var(--accent-color);
+			}
+
+			header p:last-of-type {
+				margin-block-start: var(--md-spacer);
+			}
+
+			h1 {
+				margin: var(--md-spacer) auto;
+				font-weight: 400;
+				font-size: 1.8rem;
+			}
+
+			main {
+				display: grid;
+				grid-auto-flow: column;
+				padding: var(--md-spacer);
+				margin: 0 auto;
+				max-width: 60ch;
+				/* background: crimson;
+			  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%); */
+			}
+
+			article {
+				text-align: justify;
+				padding-inline-end: var(--md-spacer);
+			}
+
+			article:first-of-type {
+				border-inline-end: thin solid var(--light-color);
+			}
+
+			article:last-of-type {
+				direction: ltr;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: var(--txt-color);
+					color: var(--light-color);
+					/* filter: contrast(100%) invert(100%) brightness(90%); */
+				}
+
+				a {
+					--accent-color: hsl(var(--h) 95% calc(var(--l) + 55%));
+					color: var(--accent-color);
+				}
+			}
+		</style>
+		<link rel="icon"
+			href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><style>svg{background:white;}circle{fill:black;}@media(prefers-color-scheme:dark){svg{background:black;}circle{fill:white;}}</style><circle cx='50' cy='50' r='50'/></svg>">
+	</head>
+
+	<body>
+		<header>
+			<h1>רוני שני</h1>
+			<p>תרגום • עריכה
+			<p><a href="/portfolio" aria-label="Click to explore my writing portfolio">Writer</a> • Translator • Editor
+			<p>
+				<a href="mailto:ronny@ironnysh.com?subject=פנייה%20מהאתר"
+					aria-label="Please copy the email address and paste it in the To field of a freshly composed message">ronny@ironnysh.com</a>
+			</p>
+		</header>
+		<main>
+			<article>
+				עורכת ומתרגמת עצמאית. תחומי העניין שלי כוללים טכנולוגיה, תקשורת, תרבות
+				ומה שביניהם. במהלך השנים כתבתי, ערכתי ותרגמתי באתרים, עיתונים ומגזינים
+				מודפסים ומקוונים, בהם ידיעות אחרונות, כלכליסט, גלובס, העין השביעית, מסע
+				אחר ועוד. בין לקוחותי: תאגידים בינלאומיים, מוסדות ציבור ועסקים ממגזרים
+				שונים.
+			</article>
+			<article>
+				My name is Ronny Shani, and I am a freelance translator and editor. A
+				former tech, media, and culture journalist, I’ve written and edited in
+				various online and print publications. Among my clients are
+				multinational corporations, public institutions, as well as SMBs from a
+				wide range of sectors.
+			</article>
+		</main>
+
+		<script>
+			console.log("%cMade with ♥ in Berlin by Ronny Shani", "font-size: 12px; font-weight: bold; color: #fff; background-color: tomato; padding: 10px 16px; margin: 20px 0; border-radius: 4px;");
+		</script>
+	</body>
+
+</html>
