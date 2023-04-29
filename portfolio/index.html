@@ -62,13 +62,15 @@
 			}
 
 			header {
-				display: grid;
-				place-items: center;
+				display: flex;
+				flex-wrap: wrap;
+				place-items: baseline;
 				place-content: center;
 				gap: var(--sm-spacer);
-				color: var(--bg-color);
+				color: var(--txt-color);
 				background-color: var(--accent-color);
 				clip-path: polygon(0 0%, 100% 0, 100% 80%, 0 100%);
+				padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
 			}
 
 			a {
@@ -80,13 +82,14 @@
 			}
 
 			h1 {
-				margin: var(--md-spacer) 0 0;
+				margin: 0;
 				font-weight: 400;
 				font-size: 1.8rem;
+				line-height: 1;
 			}
 
 			h2 {
-				margin: var(--md-spacer) 0;
+				margin-block: var(--md-spacer) var(--sm-spacer);
 				font-size: 1.1rem;
 			}
 
@@ -149,7 +152,7 @@
 				<p>Having had the pleasure of interviewing and profiling fascinating people in tech, I consider every
 					writing assignment an opportunity to learn and grow.</p>
 				<h2>Writing Samples</h2>
-				<p>Articles I've written and edited for Project A can be found on the <a
+				<p>Articles I've written and edited for Project A are on the <a
 						href="https://insights.project-a.com">Insights blog</a>.</p>
 				<p>Technical writing and documentation samples <a href="http://github.com/ironnysh">are available on
 						Github</a>.
