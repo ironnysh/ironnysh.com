@@ -8,7 +8,7 @@
 		<meta name="description"
 			content="Writer, editor, and web maker. Great believer in the Oxford comma. Check out my writing samples" />
 		<meta name="generator" content="Handmade by Ronny Shani">
-		<link rel="preload" as="font" type="font/woff2" href="../assets/varela-round-latin.woff2" crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href="assets/fira-sans-condensed.woff2" crossorigin />
 		<meta name="color-scheme" content="light dark">
 		<link rel="canonical" href="http://www.ironnysh.com/">
 		<style>
@@ -24,6 +24,11 @@
 				--md-spacer: calc(var(--sm-spacer) * 2);
 			}
 
+			::selection {
+				color: var(--bg-color);
+				background-color: var(--txt-color);
+			}
+
 			*,
 			*::before,
 			*::after {
@@ -32,15 +37,14 @@
 				margin: 0;
 			}
 
+			/* latin */
 			@font-face {
-				font-family: "Varela Round";
-				src: url("../assets/varela-round-latin.woff2") format("woff2");
-				font-weight: 400;
+				font-family: "Fira Sans Condensed";
 				font-style: normal;
+				font-weight: 300;
 				font-display: swap;
-				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-					U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
-					U+2212, U+2215, U+FEFF, U+FFFD;
+				src: url(assets/fira-sans-condensed.woff2) format('woff2');
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 			}
 
 			html {
@@ -49,13 +53,15 @@
 			}
 
 			body {
-				font-family: "Varela Round", var(--sfont);
+				font-family: "Fira Sans Condensed", var(--sfont);
+				font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
+				text-rendering: optimizeSpeed;
 				line-height: 1.5;
 				color: var(--txt-color);
 				background-color: var(--bg-color);
 				margin: 0 auto;
 				padding: 0;
-				min-block-size: 100%;
+				min-block-size: 100vh;
 				border-block-start: thick solid hsl(var(--h) var(--s) calc(var(--l) + 10%));
 			}
 
@@ -73,6 +79,11 @@
 
 			a {
 				color: var(--accent-color);
+			}
+
+			a:focus-visible {
+				outline: .3ex solid var(--accent-color);
+				border-radius: var(--sm-spacer);
 			}
 
 			h1 {
@@ -103,7 +114,10 @@
 
 			li {
 				margin-inline: calc(var(--sm-spacer) * 4);
-				margin-block-end: var(--md-spacer);
+			}
+
+			li+li {
+				margin-block-start: var(--md-spacer);
 			}
 
 			footer {
@@ -114,6 +128,11 @@
 			}
 
 			@media (prefers-color-scheme: dark) {
+				::selection {
+					color: var(--bg-color);
+					background-color: var(--accent-color);
+				}
+
 				body {
 					background-color: var(--txt-color);
 					color: hsl(var(--h) var(--s) calc(var(--l) + 60%));
@@ -125,7 +144,7 @@
 					color: var(--txt-color);
 				}
 
-				 :is(main, footer) a {
+				:is(main, footer) a {
 					--accent-color: hsl(var(--h) 95% calc(var(--l) + 55%));
 					color: var(--accent-color);
 				}
@@ -145,11 +164,15 @@
 		</header>
 		<main>
 			<article>
-				<p>I am a lifelong student with a multidisciplinary background, ranging from content creation to design to frontend
-				development. I've built and designed dozens of websites, and written hundreds of case studies, tutorials, hardware and
-				software reviews, and magazine articles about various topics - from chips to art and everything in between.
-				<p>Having had the pleasure of interviewing and profiling fascinating people across the world, I consider every writing
-				assignment an opportunity to learn and grow.</p>
+				<p>I am a lifelong student with a multidisciplinary background, ranging from content creation to design
+					to frontend
+					development. I've built and designed dozens of websites, and written hundreds of case studies,
+					tutorials, hardware and
+					software reviews, and magazine articles about various topics - from chips to art and everything in
+					between.
+				<p>Having had the pleasure of interviewing and profiling fascinating people across the world, I consider
+					every writing
+					assignment an opportunity to learn and grow.</p>
 				<h2>Writing Samples</h2>
 				<p>Articles I've written and edited for Project A are on the <a
 						href="https://insights.project-a.com">Insights blog</a>.</p>
@@ -178,8 +201,8 @@
 		<footer>
 			<p>If you're interested in getting to know me a little better, perhaps you'd like to take a look at
 				my
-				<a href="../assets/rss-subs.opml" download>RSS feed</a> or <a
-					href="../assets/podcasts-subs.opml" download>podcasts I follow</a>. Click the links above to
+				<a href="../assets/rss-subs.opml" download>RSS feed</a> or <a href="../assets/podcasts-subs.opml"
+					download>podcasts I follow</a>. Click the links above to
 				download the relevant OPML file.
 			</p>
 		</footer>
