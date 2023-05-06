@@ -57,6 +57,8 @@
 
 			html {
 				scroll-behavior: smooth;
+				background-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));
+
 			}
 
 			body {
@@ -66,7 +68,8 @@
 				background-color: var(--bg-color);
 				margin: 0 auto;
 				padding: 0;
-				min-height: 100vh;
+				min-block-size: 100dvh;
+				min-inline-size: 100dvw;
 				border-block-start: thick solid var(--dark-color);
 			}
 
@@ -115,6 +118,10 @@
 			}
 
 			@media (prefers-color-scheme: dark) {
+				html {
+					background-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));
+				}
+				
 				body {
 					background-color: var(--txt-color);
 					color: var(--light-color);

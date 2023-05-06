@@ -50,7 +50,6 @@
 			html {
 				scroll-behavior: smooth;
 				block-size: 100%;
-				background-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));
 			}
 
 			body {
@@ -62,8 +61,7 @@
 				background-color: var(--bg-color);
 				margin: 0 auto;
 				padding: 0;
-				min-block-size: 100dvh;
-				min-inline-size: 100dvw;
+				min-block-size: 100vh;
 				border-block: thick solid hsl(var(--h) var(--s) calc(var(--l) + 10%));
 			}
 
@@ -130,10 +128,6 @@
 			}
 
 			@media (prefers-color-scheme: dark) {
-				html {
-					background-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));
-				}
-				
 				::selection {
 					color: var(--bg-color);
 					background-color: var(--accent-color);
