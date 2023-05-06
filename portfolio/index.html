@@ -50,6 +50,7 @@
 			html {
 				scroll-behavior: smooth;
 				block-size: 100%;
+				background-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));
 			}
 
 			body {
@@ -128,6 +129,10 @@
 			}
 
 			@media (prefers-color-scheme: dark) {
+				html {
+					background-color: hsl(var(--h) var(--s) calc(var(--l) + 10%));
+				}
+				
 				::selection {
 					color: var(--bg-color);
 					background-color: var(--accent-color);
