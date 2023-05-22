@@ -5,6 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Ronny Shani • Writer & Web Maker</title>
+		<link rel="preload" as="font" type="font/woff2" href="assets/recoleta-regular.woff2" crossorigin />
 		<link rel="preload" as="font" type="font/woff2" href="assets/fira-sans-condensed.woff2" crossorigin />
 		<meta name="description"
 			content="Writer, editor, and web maker. Great believer in the Oxford comma. Check out my writing samples" />
@@ -15,11 +16,12 @@
 
 		<!-- SEO -->
 		<meta name="twitter:title" property="og:title" content="Ronny Shani • Writer & Web Maker">
-		<meta name="description" property="og:description" content="Writer, editor, and web maker. Great believer in the Oxford comma. Check out my writing samples">
+		<meta name="description" property="og:description"
+			content="Writer, editor, and web maker. Great believer in the Oxford comma. Check out my writing samples">
 		<meta property="twitter:card" content="summary">
 		<meta property="og:type" content="website">
 		<meta name="twitter:url" property="og:url" content="http://www.ironnysh.com/">
-		
+
 		<style>
 			:root {
 				--sfont: ui-sans-serif, -apple-system, system-ui;
@@ -47,6 +49,14 @@
 			}
 
 			/* latin */
+			@font-face {
+				font-family: "Recoleta Regular";
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: url(assets/recoleta-regular.woff2) format('woff2');
+			}
+
 			@font-face {
 				font-family: "Fira Sans Condensed";
 				font-style: normal;
@@ -86,8 +96,13 @@
 				padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
 			}
 
+			header>* {
+				font-family: "Recoleta Regular";
+			}
+
 			a {
 				color: var(--accent-color);
+				font-family: "Recoleta Regular";
 			}
 
 			a:focus-visible {
@@ -105,6 +120,7 @@
 			h2 {
 				margin-block: var(--md-spacer) var(--sm-spacer);
 				font-size: 1.1rem;
+				font-family: "Recoleta Regular";
 			}
 
 			main {
@@ -166,8 +182,8 @@
 	<body>
 		<header>
 			<h1>Ronny Shani</h1>
-			<p>Writer • Editor |
-				<a href="mailto:ronny@ironnysh.com?subject=Found%20your%20site"
+			<p>Writer • Editor
+			<p><a href="mailto:ronny@ironnysh.com?subject=Found%20your%20site"
 					aria-label="Please copy my email address (ronny@ironnysh.com), paste it in the To field of a freshly composed message, and hit send!">ronny@ironnysh.com</a>
 			</p>
 		</header>
@@ -186,11 +202,18 @@
 				<p><a href="assets/Ronny_Shani_CV_2023.pdf" download>My CV</a></p>
 
 				<h2>Writing Samples</h2>
-				<p>Articles I've written and edited for Project A are on the <a
-						href="https://insights.project-a.com">Insights blog</a>. Case studies, copy, and marketing-focused content <a href="https://inside.project-a.com">are here</a>.</p>
-				<p>Technical writing and documentation samples <a href="http://github.com/ironnysh">are available on
-						Github</a>.
-				<p>The articles below demonstrate versatile writing styles and interests. Click the headline to download
+				<ol>
+					<li>Articles I've written and edited for Project A are published regulary on the <a
+							href="https://insights.project-a.com">Insights blog</a>.
+					<li>Case studies, marketing-focused content, and few copy examples 
+						 <a href="https://inside.project-a.com">are here</a>.</li>
+					<li>Technical writing and documentation samples <a href="http://github.com/ironnysh">are available
+							on
+							Github</a>.
+				</ol>
+
+				<p>The articles below demonstrate versatile writing styles and interests. Click the headline to
+					download
 					the PDF or read online:</p>
 				<ul>
 					<li><a href="assets/digitalisation-the_covid-19_vaccine.pdf" download>Digitalisation: The
