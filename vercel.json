@@ -29,7 +29,7 @@
         },
         {
           "key" : "Content-Security-Policy",
-          "value" : "default-src 'self'; img-src 'self' data:; style-src https: 'unsafe-inline'; script-src https: 'unsafe-inline'; base-uri 'self'; frame-ancestors 'none'"
+          "value" : "default-src 'self' https://cloudflareinsights.com/cdn-cgi/rum; img-src 'self' data:; style-src 'self' https: 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' *.cloudflareinsights.com; upgrade-insecure-requests; base-uri 'self'; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; font-src 'self' data:"
         },
       {
           "key" : "Referrer-Policy",
