@@ -74,7 +74,7 @@
 				text-rendering: optimizeSpeed;
 				line-height: 1.5;
 				color: var(--txt-color);
-				background: linear-gradient(165deg, var(--accent-color) 50%, var(--bg-color) 50.1%);
+				background-image: linear-gradient(165deg, var(--accent-color) 50%, var(--bg-color) 50.1%);
 				background-repeat: no-repeat;
 				background-color: var(--bg-color);
 				margin: 0 auto;
@@ -173,20 +173,22 @@
 
 				body {
 					--txt-color: hsl(0 0% 10%);
-					background-color: var(--txt-color);
 					color: var(--bg-color);
+					background-color: var(--txt-color);
+					background-image: linear-gradient(165deg, var(--accent-color) 50%, var(--txt-color) 50.1%);
 					border-block: thick solid var(--bg-color);
 					/* filter: contrast(100%) invert(100%) brightness(90%); */
 				}
 
-				header {
+				/* header {
 					background-color: var(--bg-color);
 					color: var(--txt-color);
-				}
+				} */
 
 				:is(main, footer) a {
 					/* --accent-color: hsl(var(--h) 95% calc(var(--l) + 55%)); */
 					color: var(--accent-color);
+					background-color: var(--txt-color);
 				}
 			}
 		</style>
