@@ -25,12 +25,9 @@
 		<style>
 			:root {
 				--sfont: ui-sans-serif, -apple-system, system-ui;
-				--h: 325;
-				--s: 0%;
-				--l: 20%;
-				--txt-color: hsl(var(--h) var(--s) var(--l));
-				--bg-color: hsl(var(--h) var(--s) calc(var(--l) + 75%));
-				--accent-color: hsl(var(--h) 95% calc(var(--l) + 20%));
+				--txt-color: hsl(0 0% 0%);
+				--bg-color: hsl(35 63.3% 90.5%);
+				--accent-color: hsl(15 90.5% 50%);
 				--sm-spacer: .5rem;
 				--md-spacer: calc(var(--sm-spacer) * 2);
 			}
@@ -81,7 +78,7 @@
 				margin: 0 auto;
 				padding: 0;
 				min-block-size: 100vh;
-				border-block: thick solid hsl(var(--h) var(--s) calc(var(--l) + 10%));
+				border-block: thick solid var(--txt-color);
 			}
 
 			header {
@@ -105,9 +102,15 @@
 				font-family: "Recoleta Regular";
 			}
 
+			a:active,
+			a:hover {
+				background-color: var(--txt-color);
+			}
+
 			a:focus-visible {
 				outline: .3ex solid var(--accent-color);
 				border-radius: var(--sm-spacer);
+				background-color: var(--txt-color);
 			}
 
 			h1 {
@@ -121,6 +124,7 @@
 				margin-block: var(--md-spacer) var(--sm-spacer);
 				font-size: 1.1rem;
 				font-family: "Recoleta Regular";
+				font-weight: normal;
 			}
 
 			main {
@@ -159,25 +163,27 @@
 				}
 
 				body {
+					--txt-color: hsl(0 0% 10%);
 					background-color: var(--txt-color);
-					color: hsl(var(--h) var(--s) calc(var(--l) + 60%));
+					color: var(--bg-color);
+					border-block: thick solid var(--bg-color);
 					/* filter: contrast(100%) invert(100%) brightness(90%); */
 				}
 
 				header {
-					background-color: hsl(var(--h) var(--s) calc(var(--l) + 60%));
+					background-color: var(--bg-color);
 					color: var(--txt-color);
 				}
 
 				:is(main, footer) a {
-					--accent-color: hsl(var(--h) 95% calc(var(--l) + 55%));
+					/* --accent-color: hsl(var(--h) 95% calc(var(--l) + 55%)); */
 					color: var(--accent-color);
 				}
 			}
 		</style>
 		<script defer src="/_vercel/insights/script.js"></script>
 		<link rel="icon"
-			href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><style>svg{background:white;}circle{fill:black;}@media(prefers-color-scheme:dark){svg{background:black;}circle{fill:white;}}</style><circle cx='50' cy='50' r='50'/></svg>">
+			href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><style>svg{background:transparent;}circle{fill:var(--accent-color);}</style><circle cx='50' cy='50' r='50'/></svg>">
 	</head>
 
 	<body>
@@ -206,8 +212,10 @@
 				<ol>
 					<li>Articles I've written and edited for Project A are published regulary on the <a
 							href="https://insights.project-a.com">Insights blog</a>.
-					<li>Case studies, marketing-focused content, and few copy examples 
-						 <a href="https://inside.project-a.com">are here</a>. There's also a <a href="https://www.linkedin.com/feed/hashtag/?keywords=pakcon2023">social media campaign</a> I'm excited about.
+					<li>Case studies, marketing-focused content, and few copy examples
+						<a href="https://inside.project-a.com">are here</a>. There's also a <a
+							href="https://www.linkedin.com/feed/hashtag/?keywords=pakcon2023">social media campaign</a>
+						I'm excited about.
 					<li>Technical writing and documentation samples <a href="http://github.com/ironnysh">are available
 							on
 							Github</a>.</li>
@@ -243,7 +251,7 @@
 			</p>
 		</footer>
 		<script>
-			console.log("%cHandmade with ♥ in Berlin by Ronny Shani", "font-size: 12px; font-weight: bold; color: #fff; background-color: tomato; padding: 10px 16px; margin: 20px 0; border-radius: 4px;");
+			console.log("%cHandmade with ♥ in Berlin by Ronny Shani", "font-size: 12px; font-weight: bold; color: hsl(35 63.3% 90.5%); background-color: hsl(15 90.5% 50%); padding: 10px 16px; margin: 20px 0; border-radius: 4px;");
 		</script>
 		<script type="application/ld+json">
 			{
