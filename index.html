@@ -74,6 +74,8 @@
 				text-rendering: optimizeSpeed;
 				line-height: 1.5;
 				color: var(--txt-color);
+				background: linear-gradient(165deg, var(--accent-color) 50%, var(--bg-color) 50.1%);
+				background-repeat: no-repeat;
 				background-color: var(--bg-color);
 				margin: 0 auto;
 				padding: 0;
@@ -81,24 +83,9 @@
 				border-block: thick solid var(--txt-color);
 			}
 
-			header {
-				display: flex;
-				flex-wrap: wrap;
-				place-items: baseline;
-				place-content: center;
-				gap: var(--sm-spacer);
-				color: var(--bg-color);
-				background-color: var(--txt-color);
-				clip-path: polygon(0 0%, 100% 0, 100% 80%, 0 100%);
-				padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
-			}
-
-			header>* {
-				font-family: "Recoleta Regular";
-			}
-
 			a {
 				color: var(--accent-color);
+				background-color: var(--bg-color);
 				font-family: "Recoleta Regular";
 			}
 
@@ -111,6 +98,28 @@
 				outline: .3ex solid var(--accent-color);
 				border-radius: var(--sm-spacer);
 				background-color: var(--txt-color);
+			}
+
+			header {
+				display: flex;
+				flex-wrap: wrap;
+				place-items: baseline;
+				place-content: center;
+				gap: var(--sm-spacer);
+				color: var(--bg-color);
+				background-color: var(--txt-color);
+				clip-path: polygon(0 0%, 100% 0, 100% 50%, 0 100%);
+				padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
+			}
+
+			header>* {
+				font-family: "Recoleta Regular";
+			}
+
+			header a {
+				color: currentColor;
+				background-color: initial;
+				font-size: initial;
 			}
 
 			h1 {
@@ -191,7 +200,7 @@
 			<h1>Ronny Shani</h1>
 			<p>Writer • Editor
 			<p><a href="mailto:ronny@ironnysh.com?subject=Found%20your%20site"
-					aria-label="Please copy my email address (ronny@ironnysh.com), paste it in the To field of a freshly composed message, and hit send!">ronny@ironnysh.com</a>
+					aria-label="Click my email address (ronny@ironnysh.com) to open your favorite email app, write me a freshly composed message, and hit send!">ronny@ironnysh.com</a>
 			</p>
 		</header>
 		<main>
