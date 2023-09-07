@@ -85,6 +85,10 @@
 				border-block: thick solid var(--txt-color);
 			}
 
+			:is(header, main, footer) {
+				max-width: 60ch;
+			}
+
 			a {
 				color: var(--accent-color);
 				background-color: var(--bg-color);
@@ -112,7 +116,6 @@
 				background-color: var(--txt-color);
 				clip-path: polygon(0 0%, 100% 0, 100% 50%, 0 100%);
 				padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
-				max-block-size: 60ch;
 			}
 
 			svg {
@@ -151,7 +154,6 @@
 				grid-auto-flow: column;
 				padding: var(--md-spacer);
 				margin: 0 auto;
-				max-block-size: 60ch;
 			}
 
 			article {
@@ -170,7 +172,6 @@
 
 			footer {
 				margin: 0 auto;
-				max-width: 60ch;
 				border-block-start: 1px solid var(--accent-color);
 				padding: var(--md-spacer);
 			}
