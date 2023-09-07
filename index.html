@@ -28,8 +28,8 @@
 				--txt-color: hsl(0 0% 0%);
 				/* --bg-color: hsl(35 63.3% 90.5%);
 				--accent-color: hsl(15 90.5% 50%); */
-				--accent-color: hsl(19, 100%, 50%);
-				--bg-color: hsl(31, 100%, 95%);
+				--accent-color: hsl(19 100% 50%);
+				--bg-color: hsl(30 100% 95%);
 				--sm-spacer: .5rem;
 				--md-spacer: calc(var(--sm-spacer) * 2);
 			}
@@ -112,6 +112,12 @@
 				background-color: var(--txt-color);
 				clip-path: polygon(0 0%, 100% 0, 100% 50%, 0 100%);
 				padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
+				max-block-size: 60ch;
+			}
+
+			svg {
+				fill: var(--bg-color);
+				stroke: var(--accent-color);
 			}
 
 			header>* {
@@ -143,7 +149,7 @@
 				grid-auto-flow: column;
 				padding: var(--md-spacer);
 				margin: 0 auto;
-				max-width: 60ch;
+				max-block-size: 60ch;
 			}
 
 			article {
@@ -198,8 +204,8 @@
 		<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
 <style>svg{background:transparent;}</style>
 <circle style='fill:black;' cx='50' cy='50' r='50'/>
-<circle style='fill:hsl(35 36.3% 90.5%);' cx='50' cy='50' r='45'/>
-<circle style='fill:hsl(15 90.5% 50%);' cx='50' cy='50' r='40'/>
+<circle style='fill:hsl(30 100% 95%);' cx='50' cy='50' r='45'/>
+<circle style='fill:hsl(19 100% 50%);' cx='50' cy='50' r='40'/>
 </svg>
 
 ">
@@ -210,7 +216,9 @@
 			<h1>Ronny Shani</h1>
 			<p>Writer • Editor
 			<p><a href="mailto:ronny@ironnysh.com?subject=Found%20your%20site"
-					aria-label="Click my email address (ronny@ironnysh.com) to open your favorite email app, write me a freshly composed message, and hit send!">ronny@ironnysh.com</a>
+					aria-label="Click the icon or type my email address (ronny@ironnysh.com) to open your favorite email app, write me a freshly composed message, and hit send!"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+						<path d="M10 14L21 3M21 3l-6.5 18a.55.55 0 01-1 0L10 14l-7-3.5a.55.55 0 010-1L21 3"></path>
+					</svg></a>
 			</p>
 		</header>
 		<main>
