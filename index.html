@@ -85,7 +85,7 @@
 				border-block: thick solid var(--txt-color);
 			}
 
-			:is(header, main, footer) {
+			:is(main, footer) {
 				max-width: 60ch;
 			}
 
@@ -116,6 +116,7 @@
 				background-color: var(--txt-color);
 				clip-path: polygon(0 0%, 100% 0, 100% 50%, 0 100%);
 				padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
+				max-block-size: 60ch;
 			}
 
 			svg {
