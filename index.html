@@ -32,6 +32,7 @@
 				--sm-spacer: .5rem;
 				--md-spacer: calc(var(--sm-spacer) * 2);
 				--max-width: 20;
+				--border: thick solid currentColor;
 			}
 
 			::selection {
@@ -73,7 +74,7 @@
 				font-family: "Fira Sans Condensed", var(--sfont);
 				font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
 				text-rendering: optimizeSpeed;
-				line-height: 1.5;
+				line-height: 1.6;
 				color: var(--txt-color);
 				background-image: linear-gradient(165deg, var(--accent-color) 50%, var(--bg-color) 50.1%);
 				background-repeat: no-repeat;
@@ -81,11 +82,16 @@
 				margin: 0 auto;
 				padding: 0;
 				min-block-size: 100dvh;
-				border-block: thick solid var(--txt-color);
+				border-block: var(--border);
+			}
+
+			:is(article, footer) {
+				max-inline-size: calc(var(--max-width) * 3 * 1ch);
 			}
 
 			:is(main, footer) {
-				max-inline-size: calc(var(--max-width) * 2 * 1rem);
+				padding: var(--md-spacer);
+				margin: 0 auto;
 			}
 
 			a {
@@ -129,32 +135,34 @@
 				font-family: var(--hfont);
 			}
 
-			header a {
-				background-color: initial;
-				border-radius: 50%;
+			:is(h1, h2, h3) {
+				font-weight: initial;
 			}
 
-			h1 {
-				margin: 0;
-				font-weight: 400;
-				font-size: 1.8rem;
+			:is(h1, h2) {
 				line-height: 1;
 				max-inline-size: calc(var(--max-width) * 1ch);
 			}
 
+			h1 {
+				font-size: 1.8rem;
+			}
+
 			h2 {
-				margin-block: var(--md-spacer) var(--sm-spacer);
-				font-size: 1.1rem;
 				font-family: var(--hfont);
-				font-weight: normal;
-				max-inline-size: calc(var(--max-width) * 1ch);
+				font-size: 1.1rem;
+				margin-block: var(--md-spacer) var(--sm-spacer);
+			}
+
+			h3 {
+				font-size: inherit;
+				line-height: 1.3;
 			}
 
 			main {
 				display: grid;
 				grid-auto-flow: column;
-				padding: var(--md-spacer);
-				margin: 0 auto;
+				max-inline-size: calc(var(--max-width) * 2 * 1rem);
 			}
 
 			article {
@@ -174,35 +182,30 @@
 			}
 
 			footer {
-				margin: 0 auto;
 				border-block-start: 1px solid var(--accent-color);
-				padding: var(--md-spacer);
 			}
 
 			@media (prefers-color-scheme: dark) {
 				::selection {
-					color: var(--bg-color);
-					background-color: var(--accent-color);
+					color: var(--accent-color);
+					background-color: var(--bg-color);
 				}
 
 				body {
-					--txt-color: hsl(0 0% 10%);
 					color: var(--bg-color);
 					background-color: var(--txt-color);
 					background-image: linear-gradient(165deg, var(--accent-color) 50%, var(--txt-color) 50.1%);
-					border-block: thick solid var(--bg-color);
 				}
 
 				:is(main, footer) a {
 					color: var(--accent-color);
-					background-color: var(--txt-color);
 				}
 			}
 		</style>
 		<script defer src="/_vercel/insights/script.js"></script>
 		<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
 <style>svg{background:transparent;}</style>
-<circle style='fill:black;' cx='50' cy='50' r='50'/>
+<circle style='fill:hsl(0 0% 0%);' cx='50' cy='50' r='50'/>
 <circle style='fill:hsl(30 100% 95%);' cx='50' cy='50' r='45'/>
 <circle style='fill:hsl(20 100% 50%);' cx='50' cy='50' r='40'/>
 </svg>
@@ -213,38 +216,40 @@
 	<body>
 		<header>
 			<h1>Ronny Shani</h1>
-			<p>Writer • Editor
-			<p><a href="mailto:ronnyshani@gmail.com?subject=Found%20your%20site"
-					aria-label="Click the icon or type my email address (ronnyshani@gmail.com) to open your favorite email app, write me a freshly composed message, and hit send!">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" aria-hidden="true" title="Email me">
-						<path d="m28 37-4 4-1.33-.44-11.215 10.33c-.35-.62-.57-1.44-.57-2.32V22.06L28 37z"></path>
-						<path fill="#9B9B9A"
-							d="M60.825 22.01v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478l-1.029.058-4.064-3.806 16.96-14.72z">
-						</path>
-						<path fill="none" d="m11.521 21.649-.063-.039"></path>
+			<p>Writer • Editor</p>
+			<a href="mailto:ronnyshani@gmail.com?subject=Found%20your%20site"
+				aria-label="Click the icon or type my email address (ronnyshani@gmail.com) to open your favorite email app, write me a freshly composed message, and hit send!">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" aria-hidden="true" title="Email me">
+					<path d="m28 37-4 4-1.33-.44-11.215 10.33c-.35-.62-.57-1.44-.57-2.32V22.06L28 37z"></path>
+					<path fill="#9B9B9A"
+						d="M60.825 22.01v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478l-1.029.058-4.064-3.806 16.96-14.72z">
+					</path>
+					<path fill="none" d="m11.521 21.649-.063-.039"></path>
+					<path
+						d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15">
+					</path>
+					<path stroke-miterlimit="10" stroke-width="1.8"
+						d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15 15.41 14.11c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l15.35-14.14">
+					</path>
+					<path
+						d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126">
+					</path>
+					<path
+						d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z">
+					</path>
+					<g fill="none" stroke-miterlimit="10" stroke-width="2">
 						<path
-							d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15"></path>
-						<path stroke-miterlimit="10" stroke-width="1.8"
-							d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15 15.41 14.11c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l15.35-14.14">
+							d="M22.67 40.56 11.455 50.89c-.35-.62-.57-1.44-.57-2.32V22.06m49.94-.05v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478M11.521 21.649l-.063-.039m15.347 15.14 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15">
 						</path>
 						<path
-							d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126"></path>
+							d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126">
+						</path>
 						<path
 							d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z">
 						</path>
-						<g fill="none" stroke-miterlimit="10" stroke-width="2">
-							<path
-								d="M22.67 40.56 11.455 50.89c-.35-.62-.57-1.44-.57-2.32V22.06m49.94-.05v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478M11.521 21.649l-.063-.039m15.347 15.14 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15">
-							</path>
-							<path d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126">
-							</path>
-							<path
-								d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z">
-							</path>
-						</g>
-					</svg>
-				</a>
-			</p>
+					</g>
+				</svg>
+			</a>
 		</header>
 		<main>
 			<article>
@@ -267,7 +272,8 @@
 						<a href="https://inside.project-a.com">are here</a>. There's also a <a
 							href="https://www.linkedin.com/feed/hashtag/?keywords=pakcon2023">social media campaign</a>
 						I'm excited about.
-					<li>Some technical writing and documentation samples <a href="http://github.com/ironnysh">are available
+					<li>Some technical writing and documentation samples <a href="http://github.com/ironnysh">are
+							available
 							on
 							Github</a>.</li>
 				</ol>
@@ -276,17 +282,23 @@
 					download
 					the PDF or read online:</p>
 				<ul>
-					<li><a href="assets/digitalisation-the_covid-19_vaccine.pdf" download>Digitalisation: The
-							Covid-19 Vaccine We’ve All Been Waiting For</a>
+					<li><h3><a href="assets/digitalisation-the_covid-19_vaccine.pdf" download>
+							Digitalisation: The
+								Covid-19 Vaccine We’ve All Been Waiting For
+						</a></h3>
 						<p>A white paper for a London-based company offering "GitHub for the Construction Industry." My
 							work included interviews with C-level employees, independent research, transcribing
 							interviews with clients, and data compilation.</p>
 					</li>
-					<li><a href="assets/terminal_49-dkaravan.pdf" download>"Why can't we use a flower?"</a>
+					<li><h3><a href="assets/terminal_49-dkaravan.pdf" download>
+							"Why can't we use a flower?"
+						</a></h3>
 						<p>An Interview with the late sculptor and spatial artist Dani Karavan. The article focused on
 							his Memorial to the Sinti and Roma Victims of National Socialism in Berlin.</p>
 					</li>
-					<li><a href="assets/composition.pdf" download>Composition</a>
+					<li><h3><a href="assets/composition.pdf" download>
+							Composition
+						</a></h3>
 						<p>A long-form essay commissioned by the curator of The Crystal Palace & The Temple of Doom, a
 							group exhibition featured at the Petach Tikva Museum of Art.</p>
 					</li>
