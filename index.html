@@ -102,11 +102,13 @@
 			a:active,
 			a:hover {
 				color: var(--accent-color);
+				background-color: var(--bg-color);
 			}
 
 			a:focus-visible {
 				outline: .3ex solid var(--accent-color);
 				border-radius: var(--sm-spacer);
+				background-color: var(--bg-color);
 			}
 
 			header {
@@ -199,10 +201,10 @@
 			}
 
 			@media (prefers-color-scheme: dark) {
-				::selection {
+				/* ::selection {
 					color: var(--accent-color);
 					background-color: var(--bg-color);
-				}
+				} */
 
 				body {
 					color: var(--bg-color);
@@ -210,8 +212,8 @@
 					background-image: linear-gradient(165deg, var(--accent-color) 50%, var(--txt-color) 50.1%);
 				}
 
-				:is(main, footer) a {
-					color: var(--accent-color);
+				:is(main, footer) a:is(:active, :hover, :focus-visible) {
+					background-color: var(--txt-color);
 				}
 			}
 		</style>
