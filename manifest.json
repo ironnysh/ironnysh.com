@@ -1,9 +1,9 @@
 {
     "name": "Ronny Shani",
     "short_name": "iRonnysh",
-    "lang": "de",
-    "dir": "rtl",
-    "theme_color": "ff0000",
-    "background_color": "ff0000",
+    "lang": "en",
+    "dir": "ltr",
+    "theme_color": "ff5500",
+    "background_color": "ff5500",
     "display": "standalone"
 }
