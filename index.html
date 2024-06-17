@@ -1,400 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ronny Shani • Writer and Web Maker</title>
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="assets/recoleta-regular.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="assets/fira-sans-condensed.woff2"
+      crossorigin
+    />
 
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Ronny Shani • Writer and Web Maker</title>
-		<link rel="preload" as="font" type="font/woff2" href="assets/recoleta-regular.woff2" crossorigin />
-		<link rel="preload" as="font" type="font/woff2" href="assets/fira-sans-condensed.woff2" crossorigin />
-		<meta name="description"
-			content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples" />
-		<meta name="generator" content="Handmade by Ronny Shani">
-		<meta name="author" content="Ronny Shani">
-		<meta name="color-scheme" content="light dark">
-		<link rel="canonical" href="http://www.ironnysh.com/">
+    <style>
+      :root {
+        --sfont: ui-sans-serif, -apple-system, system-ui;
+        --hfont: "Recoleta Regular";
+        --txt-color: hsl(0 0% 0%);
+        --accent-color: hsl(20 100% 50%);
+        --bg-color: hsl(45 45% 95%);
+        --sm-spacer: 0.5rem;
+        --md-spacer: calc(var(--sm-spacer) * 2);
+        --max-width: 20;
+        --border: thick solid currentColor;
+      }
 
-		<!-- SEO -->
-		<meta name="twitter:title" property="og:title" content="Ronny Shani • Writer & Web Maker">
-		<meta name="description" property="og:description"
-			content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples">
-		<meta property="twitter:card" content="summary">
-		<meta property="og:type" content="website">
-		<meta name="twitter:url" property="og:url" content="http://www.ironnysh.com/">
+      ::selection {
+        color: var(--bg-color);
+        background-color: var(--txt-color);
+      }
 
-		<style>
-			:root {
-				--sfont: ui-sans-serif, -apple-system, system-ui;
-				--hfont: "Recoleta Regular";
-				--txt-color: hsl(0 0% 0%);
-				--accent-color: hsl(20 100% 50%);
-				--bg-color: hsl(45 45% 95%);
-				--sm-spacer: .5rem;
-				--md-spacer: calc(var(--sm-spacer) * 2);
-				--max-width: 20;
-				--border: thick solid currentColor;
-			}
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
 
-			::selection {
-				color: var(--bg-color);
-				background-color: var(--txt-color);
-			}
+      @font-face {
+        font-family: "Recoleta Regular";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(assets/recoleta-regular.woff2) format("woff2");
+      }
 
-			*,
-			*::before,
-			*::after {
-				box-sizing: border-box;
-				padding: 0;
-				margin: 0;
-			}
+      @font-face {
+        font-family: "Fira Sans Condensed";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(assets/fira-sans-condensed.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
 
-			@font-face {
-				font-family: "Recoleta Regular";
-				font-style: normal;
-				font-weight: 400;
-				font-display: swap;
-				src: url(assets/recoleta-regular.woff2) format('woff2');
-			}
+      html {
+        scroll-behavior: smooth;
+        block-size: 100%;
+      }
 
-			@font-face {
-				font-family: "Fira Sans Condensed";
-				font-style: normal;
-				font-weight: 300;
-				font-display: swap;
-				src: url(assets/fira-sans-condensed.woff2) format('woff2');
-				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-			}
+      body {
+        font-family: "Fira Sans Condensed", var(--sfont);
+        font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
+        text-rendering: optimizeSpeed;
+        line-height: 1.6;
+        color: var(--txt-color);
+        background-image: linear-gradient(
+          165deg,
+          var(--accent-color) 50%,
+          var(--bg-color) 50.1%
+        );
+        background-repeat: no-repeat;
+        background-color: var(--bg-color);
+        margin: 0 auto;
+        padding: 0;
+        min-block-size: 100dvh;
+        border-block: var(--border);
+      }
 
-			html {
-				scroll-behavior: smooth;
-				block-size: 100%;
-			}
+      :is(article, footer) {
+        max-inline-size: calc(var(--max-width) * 3 * 1ch);
+      }
 
-			body {
-				font-family: "Fira Sans Condensed", var(--sfont);
-				font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
-				text-rendering: optimizeSpeed;
-				line-height: 1.6;
-				color: var(--txt-color);
-				background-image: linear-gradient(165deg, var(--accent-color) 50%, var(--bg-color) 50.1%);
-				background-repeat: no-repeat;
-				background-color: var(--bg-color);
-				margin: 0 auto;
-				padding: 0;
-				min-block-size: 100dvh;
-				border-block: var(--border);
-			}
+      :is(main, footer) {
+        padding: var(--md-spacer);
+        margin: 0 auto;
+      }
 
-			:is(article, footer) {
-				max-inline-size: calc(var(--max-width) * 3 * 1ch);
-			}
+      a {
+        color: inherit;
+        font-family: var(--hfont);
+      }
 
-			:is(main, footer) {
-				padding: var(--md-spacer);
-				margin: 0 auto;
-			}
+      a:active,
+      a:hover {
+        color: var(--accent-color);
+        background-color: var(--bg-color);
+      }
 
-			a {
-				color: inherit;
-				font-family: var(--hfont);
-			}
+      a:focus-visible {
+        outline: 0.3ex solid var(--accent-color);
+        border-radius: var(--sm-spacer);
+        background-color: var(--bg-color);
+      }
 
-			a:active,
-			a:hover {
-				color: var(--accent-color);
-				background-color: var(--bg-color);
-			}
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        place-items: baseline;
+        place-content: center;
+        gap: var(--sm-spacer);
+        color: var(--bg-color);
+        background-color: var(--txt-color);
+        clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 calc(100% - 6vw));
+        padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
+      }
 
-			a:focus-visible {
-				outline: .3ex solid var(--accent-color);
-				border-radius: var(--sm-spacer);
-				background-color: var(--bg-color);
-			}
+      svg {
+        fill: var(--bg-color);
+        stroke: var(--txt-color);
+        height: 3ex;
+        vertical-align: middle;
+        overflow: hidden;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
 
-			header {
-				display: flex;
-				flex-wrap: wrap;
-				place-items: baseline;
-				place-content: center;
-				gap: var(--sm-spacer);
-				color: var(--bg-color);
-				background-color: var(--txt-color);
-				clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 calc(100% - 6vw));
-				padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
-			}
+      header > * {
+        font-family: var(--hfont);
+      }
+      nav a {
+        display: inline-block;
+      }
 
-			svg {
-				fill: var(--bg-color);
-				stroke: var(--txt-color);
-				height: 3ex;
-				vertical-align: middle;
-				overflow: hidden;
-				stroke-linecap: round;
-				stroke-linejoin: round;
-			}
+      nav,
+      nav a:hover {
+        color: var(--txt-color);
+      }
 
-			header>* {
-				font-family: var(--hfont);
-			}
-			nav a {
-				display: inline-block;
-			}
-			
-			nav, nav a:hover {
-				color: var(--txt-color);
-			}
+      :is(h1, h2, h3) {
+        font-weight: initial;
+      }
 
-			:is(h1, h2, h3) {
-				font-weight: initial;
-			}
+      :is(h1, h2) {
+        line-height: 1;
+        max-inline-size: calc(var(--max-width) * 1ch);
+      }
 
-			:is(h1, h2) {
-				line-height: 1;
-				max-inline-size: calc(var(--max-width) * 1ch);
-			}
+      h1 {
+        font-size: 1.8rem;
+      }
 
-			h1 {
-				font-size: 1.8rem;
-			}
+      h2 {
+        font-family: var(--hfont);
+        font-size: 1.1rem;
+        margin-block: var(--md-spacer) var(--sm-spacer);
+      }
 
-			h2 {
-				font-family: var(--hfont);
-				font-size: 1.1rem;
-				margin-block: var(--md-spacer) var(--sm-spacer);
-			}
+      h3 {
+        font-size: inherit;
+        line-height: 1.3;
+      }
 
-			h3 {
-				font-size: inherit;
-				line-height: 1.3;
-			}
+      main {
+        display: grid;
+        grid-auto-flow: column;
+        max-inline-size: calc(var(--max-width) * 2 * 1rem);
+      }
 
-			main {
-				display: grid;
-				grid-auto-flow: column;
-				max-inline-size: calc(var(--max-width) * 2 * 1rem);
-			}
+      article {
+        display: grid;
+        gap: var(--sm-spacer);
+        text-align: justify;
+        place-self: center;
+        max-inline-size: calc(var(--max-width) * 3 * 1ch);
+      }
 
-			article {
-				display: grid;
-				gap: var(--sm-spacer);
-				text-align: justify;
-				place-self: center;
-				max-inline-size: calc(var(--max-width) * 3 * 1ch);
-			}
+      li {
+        margin-inline: calc(var(--md-spacer) * 2);
+      }
 
-			li {
-				margin-inline: calc(var(--md-spacer) * 2);
-			}
+      li + li {
+        margin-block-start: var(--md-spacer);
+      }
 
-			li+li {
-				margin-block-start: var(--md-spacer);
-			}
+      footer {
+        border-block-start: 1px solid var(--accent-color);
+      }
 
-			footer {
-				border-block-start: 1px solid var(--accent-color);
-			}
+      a[href*="edit"] {
+        color: currentcolor;
+        text-decoration: none;
+        cursor: text;
+      }
 
-			a[href*="edit"] {
-				color: currentcolor;
-				text-decoration: none;
-				cursor: text;
-			}
-
-			@media (prefers-color-scheme: dark) {
-				/* ::selection {
+      @media (prefers-color-scheme: dark) {
+        /* ::selection {
 					color: var(--accent-color);
 					background-color: var(--bg-color);
 				} */
 
-				body {
-					color: var(--bg-color);
-					background-color: var(--txt-color);
-					background-image: linear-gradient(165deg, var(--accent-color) 50%, var(--txt-color) 50.1%);
-				}
+        body {
+          color: var(--bg-color);
+          background-color: var(--txt-color);
+          background-image: linear-gradient(
+            165deg,
+            var(--accent-color) 50%,
+            var(--txt-color) 50.1%
+          );
+        }
 
-				:is(main, footer) a:is(:active, :hover, :focus-visible) {
-					background-color: var(--txt-color);
-				}
-			}
-		</style>
-		<script defer src="/_vercel/insights/script.js"></script>
-		<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+        :is(main, footer) a:is(:active, :hover, :focus-visible) {
+          background-color: var(--txt-color);
+        }
+      }
+    </style>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <meta
+      name="description"
+      content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples"
+    />
+    <meta name="generator" content="Handmade by Ronny Shani" />
+    <meta name="author" content="Ronny Shani" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href="http://www.ironnysh.com/" />
+
+    <!-- SEO -->
+    <meta
+      name="twitter:title"
+      property="og:title"
+      content="Ronny Shani • Writer & Web Maker"
+    />
+    <meta
+      name="description"
+      property="og:description"
+      content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples"
+    />
+    <meta property="twitter:card" content="summary" />
+    <meta property="og:type" content="website" />
+    <meta
+      name="twitter:url"
+      property="og:url"
+      content="http://www.ironnysh.com/"
+    />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
 <style>svg{background:transparent;}</style>
 <circle style='fill:hsl(0 0% 0%);' cx='50' cy='50' r='50'/>
 <circle style='fill:hsl(30 100% 95%);' cx='50' cy='50' r='45'/>
 <circle style='fill:hsl(20 100% 50%);' cx='50' cy='50' r='40'/>
 </svg>
 
-">
-	</head>
+"
+    />
+  </head>
 
-	<body>
-		<header>
-			<h1>Ronny Shani</h1>
-			<p>Word Engineer</p>
-			<nav>
-				<a href="mailto:ronnyshani@gmail.com?subject=Found%20your%20site"
-					aria-label="Click the icon or type my email address (ronnyshani@gmail.com) to open your favorite email app, write me a freshly composed message, and hit send!">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" aria-hidden="true" title="Email me">
-						<path d="m28 37-4 4-1.33-.44-11.215 10.33c-.35-.62-.57-1.44-.57-2.32V22.06L28 37z"></path>
-						<path fill="#9B9B9A"
-							d="M60.825 22.01v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478l-1.029.058-4.064-3.806 16.96-14.72z">
-						</path>
-						<path fill="none" d="m11.521 21.649-.063-.039"></path>
-						<path
-							d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15">
-						</path>
-						<path stroke-miterlimit="10" stroke-width="1.8"
-							d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15 15.41 14.11c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l15.35-14.14">
-						</path>
-						<path
-							d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126">
-						</path>
-						<path
-							d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z">
-						</path>
-						<g fill="none" stroke-miterlimit="10" stroke-width="2">
-							<path
-								d="M22.67 40.56 11.455 50.89c-.35-.62-.57-1.44-.57-2.32V22.06m49.94-.05v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478M11.521 21.649l-.063-.039m15.347 15.14 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15">
-							</path>
-							<path
-								d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126">
-							</path>
-							<path
-								d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z">
-							</path>
-						</g>
-					</svg>
-				</a>
-				<a href="https://www.linkedin.com/in/ronny-shani/" aria-label="Let's connect on LinkedIn">
-					<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-						title="Let's connect on LinkedIn">
-						<path
-							d="M101.233 269.812c-.169-20.569-10.431-148.104-1.751-162.388 3.971-6.536 184.116-19.555 196.086-.401 11.97 19.153 11.97 184.236-5.021 190.915-25.318 9.952-137.542 2.61-171.903 0" />
-						<path
-							d="M152 251c2.25-23.321 0-46.638 0-70M151 152c0-2.29 1-1.098 1-3M192 181c-1.522 22.876-.854 46.015-.854 69M192 200.435c0-9.897 12.438-17.896 19.503-19.657 45.322-11.295 42.591 11.929 40.589 68.222"
-							stroke-width="var(--md-spacer)" />
-					</svg></a>
-				<a href="https://github.com/ironnysh" aria-label="Browse my code on GitHub">
-					<svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-						title="Browse my code on GitHub">
-						<path
-							d="M29.044 61.611c0-.927-.035-3.98-.035-7.764 0-2.647.874-4.373 1.863-5.253-6.227-.721-12.779-3.153-12.779-14.034 0-3.098 1.096-5.632 2.887-7.615-.286-.72-1.253-3.606.278-7.514 0 0 2.355-.764 7.716 2.908 2.238-.628 4.638-.946 7.027-.951 2.384.005 4.785.323 7.027.951 5.357-3.672 7.711-2.908 7.711-2.908 1.532 3.908.57 6.795.278 7.514 1.796 1.983 2.882 4.514 2.882 7.615 0 10.905-6.56 13.307-12.817 14.008 1.013.882 1.909 2.611 1.909 5.263 0 3.792-.035 6.85-.035 7.78 0 .762.505 1.641 1.93 1.369 11.145-3.758 19.177-14.396 19.177-26.932 0-15.678-12.567-28.388-28.067-28.388-15.494 0-28.06 12.707-28.06 28.388 0 12.541 8.04 23.182 19.202 26.934 1.395.262 1.906-.614 1.906-1.37z" />
-						<g>
-							<path
-								d="M29.044 61.611c0-.927-.035-3.98-.035-7.764 0-2.647.874-4.373 1.863-5.253-6.227-.721-12.779-3.153-12.779-14.034 0-3.098 1.096-5.632 2.887-7.615-.286-.72-1.253-3.606.278-7.514 0 0 2.355-.764 7.716 2.908 2.238-.628 4.638-.946 7.027-.951 2.384.005 4.785.323 7.027.951 5.357-3.672 7.711-2.908 7.711-2.908 1.532 3.908.57 6.795.278 7.514 1.796 1.983 2.882 4.514 2.882 7.615 0 10.905-6.56 13.307-12.817 14.008 1.013.882 1.909 2.611 1.909 5.263 0 3.792-.035 6.85-.035 7.78 0 .762.505 1.641 1.93 1.369 11.145-3.758 19.177-14.396 19.177-26.932 0-15.678-12.567-28.388-28.067-28.388-15.494 0-28.06 12.707-28.06 28.388 0 12.541 8.04 23.182 19.202 26.934 1.395.262 1.906-.614 1.906-1.37z" />
-							<path d="M16.29 48.09c2.568.78 3.58 1.635 4.789 3.661 1.205 2.026 2.62 4.287 7.933 2.999" />
-						</g>
-					</svg>
-				</a>
-			</nav>
-		</header>
-		<main>
-			<article>
-				<p>I am an avid storyteller with a multidisciplinary background, ranging from content creation to design
-					and web
-					development. I've written numerous case studies,
-					tutorials, hardware
-					and
-					software reviews, and magazine articles about various topics - from DevOps to art and everything in
-					between.
-				<p>Having had the pleasure of interviewing and profiling fascinating people across the world, I consider
-					every writing
-					assignment an opportunity to learn and grow.
+  <body>
+    <header>
+      <h1>Ronny Shani</h1>
+      <p>Word Engineer</p>
+      <nav>
+        <a
+          href="mailto:ronnyshani@gmail.com?subject=Found%20your%20site"
+          aria-label="Click the icon or type my email address (ronnyshani@gmail.com) to open your favorite email app, write me a freshly composed message, and hit send!"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 72 72"
+            aria-hidden="true"
+            title="Email me"
+          >
+            <path
+              d="m28 37-4 4-1.33-.44-11.215 10.33c-.35-.62-.57-1.44-.57-2.32V22.06L28 37z"
+            ></path>
+            <path
+              fill="#9B9B9A"
+              d="M60.825 22.01v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478l-1.029.058-4.064-3.806 16.96-14.72z"
+            ></path>
+            <path fill="none" d="m11.521 21.649-.063-.039"></path>
+            <path
+              d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15"
+            ></path>
+            <path
+              stroke-miterlimit="10"
+              stroke-width="1.8"
+              d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15 15.41 14.11c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l15.35-14.14"
+            ></path>
+            <path
+              d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126"
+            ></path>
+            <path
+              d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z"
+            ></path>
+            <g fill="none" stroke-miterlimit="10" stroke-width="2">
+              <path
+                d="M22.67 40.56 11.455 50.89c-.35-.62-.57-1.44-.57-2.32V22.06m49.94-.05v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478M11.521 21.649l-.063-.039m15.347 15.14 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15"
+              ></path>
+              <path
+                d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126"
+              ></path>
+              <path
+                d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z"
+              ></path>
+            </g>
+          </svg>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ronny-shani/"
+          aria-label="Let's connect on LinkedIn"
+        >
+          <svg
+            viewBox="0 0 400 400"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            title="Let's connect on LinkedIn"
+          >
+            <path
+              d="M101.233 269.812c-.169-20.569-10.431-148.104-1.751-162.388 3.971-6.536 184.116-19.555 196.086-.401 11.97 19.153 11.97 184.236-5.021 190.915-25.318 9.952-137.542 2.61-171.903 0"
+            />
+            <path
+              d="M152 251c2.25-23.321 0-46.638 0-70M151 152c0-2.29 1-1.098 1-3M192 181c-1.522 22.876-.854 46.015-.854 69M192 200.435c0-9.897 12.438-17.896 19.503-19.657 45.322-11.295 42.591 11.929 40.589 68.222"
+              stroke-width="var(--md-spacer)"
+            /></svg
+        ></a>
+        <a
+          href="https://github.com/ironnysh"
+          aria-label="Browse my code on GitHub"
+        >
+          <svg
+            viewBox="0 0 72 72"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            title="Browse my code on GitHub"
+          >
+            <path
+              d="M29.044 61.611c0-.927-.035-3.98-.035-7.764 0-2.647.874-4.373 1.863-5.253-6.227-.721-12.779-3.153-12.779-14.034 0-3.098 1.096-5.632 2.887-7.615-.286-.72-1.253-3.606.278-7.514 0 0 2.355-.764 7.716 2.908 2.238-.628 4.638-.946 7.027-.951 2.384.005 4.785.323 7.027.951 5.357-3.672 7.711-2.908 7.711-2.908 1.532 3.908.57 6.795.278 7.514 1.796 1.983 2.882 4.514 2.882 7.615 0 10.905-6.56 13.307-12.817 14.008 1.013.882 1.909 2.611 1.909 5.263 0 3.792-.035 6.85-.035 7.78 0 .762.505 1.641 1.93 1.369 11.145-3.758 19.177-14.396 19.177-26.932 0-15.678-12.567-28.388-28.067-28.388-15.494 0-28.06 12.707-28.06 28.388 0 12.541 8.04 23.182 19.202 26.934 1.395.262 1.906-.614 1.906-1.37z"
+            />
+            <g>
+              <path
+                d="M29.044 61.611c0-.927-.035-3.98-.035-7.764 0-2.647.874-4.373 1.863-5.253-6.227-.721-12.779-3.153-12.779-14.034 0-3.098 1.096-5.632 2.887-7.615-.286-.72-1.253-3.606.278-7.514 0 0 2.355-.764 7.716 2.908 2.238-.628 4.638-.946 7.027-.951 2.384.005 4.785.323 7.027.951 5.357-3.672 7.711-2.908 7.711-2.908 1.532 3.908.57 6.795.278 7.514 1.796 1.983 2.882 4.514 2.882 7.615 0 10.905-6.56 13.307-12.817 14.008 1.013.882 1.909 2.611 1.909 5.263 0 3.792-.035 6.85-.035 7.78 0 .762.505 1.641 1.93 1.369 11.145-3.758 19.177-14.396 19.177-26.932 0-15.678-12.567-28.388-28.067-28.388-15.494 0-28.06 12.707-28.06 28.388 0 12.541 8.04 23.182 19.202 26.934 1.395.262 1.906-.614 1.906-1.37z"
+              />
+              <path
+                d="M16.29 48.09c2.568.78 3.58 1.635 4.789 3.661 1.205 2.026 2.62 4.287 7.933 2.999"
+              />
+            </g>
+          </svg>
+        </a>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <p>
+          I am an avid storyteller with a multidisciplinary background, ranging
+          from content creation to design and web development. I've written
+          numerous case studies, tutorials, hardware and software reviews, and
+          magazine articles about various topics - from DevOps to art and
+          everything in between.
+        </p>
 
-				<h2>Writing Samples</h2>
-				<ol>
-					<li><a href="https://wptavern.com/author/ironnysh">My articles on WP Tavern</a>, an online magazine dedicated to all things WordPress.</li>
-					<li>All the tech articles I've <a href="https://insights.project-a.com/?s=Ronny+Shani">written</a> and
-						others I edited for
-						Project A are published on the <a href="https://insights.project-a.com">Insights
-							blog</a>.
-					<li>Case studies, marketing-focused <a href="https://medium.com/@valvespace/introducing-the-api-that-unlocks-flexible-work-d045efaaf8">content</a>, and a few copy examples
-						<a href="https://inside.project-a.com">are here</a>. There's also a <a
-							href="https://www.linkedin.com/feed/hashtag/?keywords=pakcon2023">social media campaign</a>
-						I'm proud of leading. <a href="https://www.linkedin.com/in/ronny-shani/">Contact me</a> for more
-						references.
-					<li>Some technical writing and documentation samples <a href="http://github.com/ironnysh">are
-							available
-							on
-							Github</a>. <small>Note that most of my work in this area is not public.</small></li>
-				</ol>
+        <p>
+          Having had the pleasure of interviewing and profiling fascinating
+          people across the world, I consider every writing assignment an
+          opportunity to learn and grow.
+        </p>
 
-				<p>The articles below demonstrate versatile writing styles and interests. Click the headline to
-					read online or download
-					the PDF:</p>
-				<ul>
-					<li>
-						<h3><a href="https://insights.project-a.com/run-an-e-commerce-app-on-google-sheets/">
-								Run an E-Commerce App on Google Sheets
-							</a></h3>
-						<p>Project A's developers used Google Apps Script to automate a Google Sheets-based warehouse
-							management system. Learn how to do
-							it, too</p>
-					</li>
-					<li>
-						<h3><a href="https://insights.project-a.com/the-court-says-dont-use-google-fonts/">
-								The Court Says, Don’t Use Google Fonts. What To Do Instead?
-							</a></h3>
-						<p>Fifty million websites worldwide use Google’s font library. A recent court ruling in Germany
-							might change that. What you
-							need to know — and do — to host fonts locally and avoid fines</p>
-					</li>
-					<li>
-						<h3><a href="https://insights.project-a.com/the-secret-to-successful-exit-software-audit/">
-								The Secret to Successful Exit: Software Audit
-							</a></h3>
-						<p>Have you ever thought about the legal implications of excessive use of NPM? Learnings and
-							best practices that will help you decide when to integrate open-source and third-party
-							libraries</p>
-					</li>
-					<li>
-						<h3><a href="assets/digitalisation-the_covid-19_vaccine.pdf" download>
-								Digitalisation: The
-								Covid-19 Vaccine We’ve All Been Waiting For
-							</a></h3>
-						<p>A white paper for a London-based company offering "GitHub for the Construction Industry." My
-							work included interviews with C-level employees, independent research, transcribing
-							interviews with clients, and data compilation.</p>
-					</li>
-					<li>
-						<h3><a href="assets/terminal_49-dkaravan.pdf" download>
-								"Why can't we use a flower?"
-							</a></h3>
-						<p>An Interview with the late sculptor and spatial artist Dani Karavan. The article focused on
-							his Memorial to the Sinti and Roma Victims of National Socialism in Berlin.</p>
-					</li>
-					<li>
-						<h3><a href="assets/composition.pdf" download>
-								Composition
-							</a></h3>
-						<p>A long-form essay commissioned by the curator of The Crystal Palace & The Temple of Doom, a
-							group exhibition featured at the Petach Tikva Museum of Art.</p>
-					</li>
-				</ul>
-			</article>
-		</main>
-		<footer>
-			<p>If you're interested in getting to know me a little better, perhaps you'd like to take a look at
-				my
-				<a href="assets/rss-subs.opml" download>RSS feed</a> or <a href="assets/podcasts-subs.opml"
-					download>podcasts I follow</a>. Click the links above to
-				download the relevant OPML file. <a href="https://github.com/ironnysh/ironnysh.com/edit/main/index.html"
-					target="_blank" rel="noopener external">✪</a>
-			</p>
-		</footer>
-		<script>
-			console.log("%cHandmade with ♥ by Ronny Shani", "font-size: 12px; font-weight: bold; color: hsl(30 100% 95%); background-color: hsl(20 100% 50%); padding: 10px 16px; margin: 20px 0; border-radius: 4px;");
-		</script>
-		<script type="application/ld+json">
-			{
-			  "@context": "https://schema.org",
-			  "@type": "WebSite",
-			  "name": "Ronny Shani",
-			  "description": "Ronny Shani • Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples",
-			  "url": "http://www.ironnysh.com/",
-			}
-		</script>
-	</body>
+        <h2>Writing Samples</h2>
+        <ol>
+          <li>
+            <a href="https://wptavern.com/author/ironnysh"
+              >My articles on WP Tavern</a
+            >, an online magazine dedicated to all things WordPress.
+          </li>
+          <li>
+            All the tech articles I've
+            <a href="https://insights.project-a.com/?s=Ronny+Shani">written</a>
+            and others I edited for Project A are published on the
+            <a href="https://insights.project-a.com">Insights blog</a>.
+          </li>
 
+          <li>
+            Case studies, marketing-focused
+            <a
+              href="https://medium.com/@valvespace/introducing-the-api-that-unlocks-flexible-work-d045efaaf8"
+              >content</a
+            >, and a few copy examples
+            <a href="https://inside.project-a.com">are here</a>. There's also a
+            <a href="https://www.linkedin.com/feed/hashtag/?keywords=pakcon2023"
+              >social media campaign</a
+            >
+            I'm proud of leading.
+            <a href="https://www.linkedin.com/in/ronny-shani/">Contact me</a>
+            for more references.
+          </li>
+
+          <li>
+            Some technical writing and documentation samples
+            <a href="http://github.com/ironnysh">are available on Github</a>.
+            <small>Note that most of my work in this area is not public.</small>
+          </li>
+        </ol>
+
+        <p>
+          The articles below demonstrate versatile writing styles and interests.
+          Click the headline to read online or download the PDF:
+        </p>
+        <ul>
+          <li>
+            <h3>
+              <a
+                href="https://insights.project-a.com/run-an-e-commerce-app-on-google-sheets/"
+              >
+                Run an E-Commerce App on Google Sheets
+              </a>
+            </h3>
+            <p>
+              Project A's developers used Google Apps Script to automate a
+              Google Sheets-based warehouse management system. Learn how to do
+              it, too
+            </p>
+          </li>
+          <li>
+            <h3>
+              <a
+                href="https://insights.project-a.com/the-court-says-dont-use-google-fonts/"
+              >
+                The Court Says, Don’t Use Google Fonts. What To Do Instead?
+              </a>
+            </h3>
+            <p>
+              Fifty million websites worldwide use Google’s font library. A
+              recent court ruling in Germany might change that. What you need to
+              know — and do — to host fonts locally and avoid fines
+            </p>
+          </li>
+          <li>
+            <h3>
+              <a
+                href="https://insights.project-a.com/the-secret-to-successful-exit-software-audit/"
+              >
+                The Secret to Successful Exit: Software Audit
+              </a>
+            </h3>
+            <p>
+              Have you ever thought about the legal implications of excessive
+              use of NPM? Learnings and best practices that will help you decide
+              when to integrate open-source and third-party libraries
+            </p>
+          </li>
+          <li>
+            <h3>
+              <a href="assets/digitalisation-the_covid-19_vaccine.pdf" download>
+                Digitalisation: The Covid-19 Vaccine We’ve All Been Waiting For
+              </a>
+            </h3>
+            <p>
+              A white paper for a London-based company offering "GitHub for the
+              Construction Industry." My work included interviews with C-level
+              employees, independent research, transcribing interviews with
+              clients, and data compilation.
+            </p>
+          </li>
+          <li>
+            <h3>
+              <a href="assets/terminal_49-dkaravan.pdf" download>
+                "Why can't we use a flower?"
+              </a>
+            </h3>
+            <p>
+              An Interview with the late sculptor and spatial artist Dani
+              Karavan. The article focused on his Memorial to the Sinti and Roma
+              Victims of National Socialism in Berlin.
+            </p>
+          </li>
+          <li>
+            <h3><a href="assets/composition.pdf" download> Composition </a></h3>
+            <p>
+              A long-form essay commissioned by the curator of The Crystal
+              Palace & The Temple of Doom, a group exhibition featured at the
+              Petach Tikva Museum of Art.
+            </p>
+          </li>
+        </ul>
+      </article>
+    </main>
+    <footer>
+      <p>
+        If you're interested in getting to know me a little better, perhaps
+        you'd like to take a look at my
+        <a href="assets/rss-subs.opml" download>RSS feed</a> or
+        <a href="assets/podcasts-subs.opml" download>podcasts I follow</a>.
+        Click the links above to download the relevant OPML file.
+        <a
+          href="https://github.com/ironnysh/ironnysh.com/edit/main/index.html"
+          target="_blank"
+          rel="noopener external"
+          >✪</a
+        >
+      </p>
+    </footer>
+    <script>
+      console.log(
+        "%cHandmade with ♥ by Ronny Shani",
+        "font-size: 12px; font-weight: bold; color: hsl(30 100% 95%); background-color: hsl(20 100% 50%); padding: 10px 16px; margin: 20px 0; border-radius: 4px;"
+      );
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Ronny Shani",
+        "description": "Ronny Shani • Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples",
+        "url": "http://www.ironnysh.com/"
+      }
+    </script>
+  </body>
 </html>
