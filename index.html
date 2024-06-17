@@ -20,215 +20,211 @@
     />
 
     <style>
-                  :root {
-                    --sfont: ui-sans-serif, -apple-system, system-ui;
-                    --hfont: "Recoleta Regular";
-                    --txt-color: hsl(0 0% 0%);
-                    --accent-color: hsl(20 100% 50%);
-                    --bg-color: hsl(45 45% 95%);
-                    --sm-spacer: 0.5rem;
-                    --md-spacer: calc(var(--sm-spacer) * 2);
-                    --max-width: 20;
-                    --border: thick solid currentColor;
-                  }
+      :root {
+        --sfont: ui-sans-serif, -apple-system, system-ui;
+        --hfont: "Recoleta Regular";
+        --txt-color: hsl(0 0% 0%);
+        --accent-color: hsl(20 100% 50%);
+        --bg-color: hsl(45 45% 95%);
+        --sm-spacer: 0.5rem;
+        --md-spacer: calc(var(--sm-spacer) * 2);
+        --max-width: 20;
+        --border: thick solid currentColor;
+      }
 
-                  ::selection {
-                    color: var(--bg-color);
-                    background-color: var(--txt-color);
-                  }
+      ::selection {
+        color: var(--bg-color);
+        background-color: var(--txt-color);
+      }
 
-                  *,
-                  *::before,
-                  *::after {
-                    box-sizing: border-box;
-                    padding: 0;
-                    margin: 0;
-                  }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
 
-                  @font-face {
-                    font-family: "Recoleta Regular";
-                    font-style: normal;
-                    font-weight: 400;
-                    font-display: swap;
-                    src: url(assets/recoleta-regular.woff2) format("woff2");
-                  }
+      @font-face {
+        font-family: "Recoleta Regular";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(assets/recoleta-regular.woff2) format("woff2");
+      }
 
-                  @font-face {
-                    font-family: "Fira Sans Condensed";
-                    font-style: normal;
-                    font-weight: 300;
-                    font-display: swap;
-                    src: url(assets/fira-sans-condensed.woff2) format("woff2");
-                    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-                      U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
-                      U+2212, U+2215, U+FEFF, U+FFFD;
-                  }
+      @font-face {
+        font-family: "Fira Sans Condensed";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(assets/fira-sans-condensed.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
 
-                  html {
-                    scroll-behavior: smooth;
-                    block-size: 100%;
-                  }
+      html {
+        scroll-behavior: smooth;
+        block-size: 100%;
+      }
 
-                  body {
-                    font-family: "Fira Sans Condensed", var(--sfont);
-                    font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
-                    text-rendering: optimizeSpeed;
-                    line-height: 1.6;
-                    color: var(--txt-color);
-                    background-image: linear-gradient(
-                      165deg,
-                      var(--accent-color) 50%,
-                      var(--bg-color) 50.1%
-                    );
-                    background-repeat: no-repeat;
-                    background-color: var(--bg-color);
-                    margin: 0 auto;
-                    padding: 0;
-                    min-block-size: 100dvh;
-                    border-block: var(--border);
-                  }
+      body {
+        font-family: "Fira Sans Condensed", var(--sfont);
+        font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
+        text-rendering: optimizeSpeed;
+        line-height: 1.6;
+        color: var(--txt-color);
+        background-image: linear-gradient(
+          165deg,
+          var(--accent-color) 50%,
+          var(--bg-color) 50.1%
+        );
+        background-repeat: no-repeat;
+        background-color: var(--bg-color);
+        margin: 0 auto;
+        padding: 0;
+        min-block-size: 100dvh;
+        border-block: var(--border);
+      }
 
-                  :is(article, footer) {
-                    max-inline-size: calc(var(--max-width) * 3 * 1ch);
-                  }
+      :is(article, footer) {
+        max-inline-size: calc(var(--max-width) * 3 * 1ch);
+      }
 
-                  :is(main, footer) {
-                    padding: var(--md-spacer);
-                    margin: 0 auto;
-                  }
+      :is(main, footer) {
+        padding: var(--md-spacer);
+        margin: 0 auto;
+      }
 
-                  a {
-                    color: inherit;
-                    font-family: var(--hfont);
-                  }
+      a:not(:has(svg)) {
+        color: inherit;
+        font-family: var(--hfont);
 
-                  a:active,
-                  a:hover {
-                    color: var(--accent-color);
-                    background-color: var(--bg-color);
-                  }
+        &:active,
+        :hover {
+          color: var(--accent-color);
+          background-color: var(--bg-color);
+        }
+        &:focus-visible {
+          outline: 0.3ex solid var(--accent-color);
+          border-radius: var(--sm-spacer);
+          background-color: var(--bg-color);
+        }
+      }
 
-                  a:focus-visible {
-                    outline: 0.3ex solid var(--accent-color);
-                    border-radius: var(--sm-spacer);
-                    background-color: var(--bg-color);
-                  }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        place-items: baseline;
+        place-content: center;
+        gap: var(--sm-spacer);
+        color: var(--bg-color);
+        background-color: var(--txt-color);
+        clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 calc(100% - 6vw));
+        padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
+      }
 
-                  header {
-                    display: flex;
-                    flex-wrap: wrap;
-                    place-items: baseline;
-                    place-content: center;
-                    gap: var(--sm-spacer);
-                    color: var(--bg-color);
-                    background-color: var(--txt-color);
-                    clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 calc(100% - 6vw));
-                    padding-block: calc(var(--md-spacer) * 2) calc(var(--md-spacer) * 4);
-                  }
+      svg {
+        fill: var(--bg-color);
+        stroke: var(--txt-color);
+        height: 3ex;
+        vertical-align: middle;
+        overflow: hidden;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
 
-                  svg {
-                    fill: var(--bg-color);
-                    stroke: var(--txt-color);
-                    height: 3ex;
-                    vertical-align: middle;
-                    overflow: hidden;
-                    stroke-linecap: round;
-                    stroke-linejoin: round;
-                  }
+      header > *,
+      :is(h1, h2, h3) {
+        font-family: var(--hfont);
+        font-weight: initial;
+      }
 
-                  header > * {
-                    font-family: var(--hfont);
-                  }
-                  nav a {
-                    display: inline-block;
-                  }
+      nav a {
+        display: inline-block;
+        filter: brightness(80%);
 
-                  nav,
-                  nav a:hover {
-                    color: var(--txt-color);
-                  }
+        &:is(:hover, :focus-visible) {
+          filter: brightness(100%);
+        }
+      }
+
+      nav:has(a:hover, a:focus-visible) a:not(:hover, :focus-visible) {
+        filter: brightness(60%);
+        transition: brightness 0.25s ease-in;
+      }
       
-                  :is(h1, h2, h3) {
-                    font-weight: initial;
-                  }
+      :is(h1, h2) {
+        line-height: 1;
+        max-inline-size: calc(var(--max-width) * 1ch);
+      }
 
-                  :is(h1, h2) {
-                    line-height: 1;
-                    max-inline-size: calc(var(--max-width) * 1ch);
-                  }
+      h1 {
+        font-size: 1.8rem;
+      }
 
-                  h1 {
-                    font-size: 1.8rem;
-                  }
+      h2 {
+        font-size: 1.1rem;
+        margin-block: var(--md-spacer) var(--sm-spacer);
+      }
 
-                  h2 {
-                    font-family: var(--hfont);
-                    font-size: 1.1rem;
-                    margin-block: var(--md-spacer) var(--sm-spacer);
-                  }
+      h3 {
+        font-size: inherit;
+      }
 
-                  h3 {
-                    font-size: inherit;
-                    line-height: 1.3;
-                  }
+      main {
+        display: grid;
+        grid-auto-flow: column;
+        max-inline-size: calc(var(--max-width) * 2 * 1rem);
+      }
 
-                  main {
-                    display: grid;
-                    grid-auto-flow: column;
-                    max-inline-size: calc(var(--max-width) * 2 * 1rem);
-                  }
+      article {
+        display: grid;
+        gap: var(--sm-spacer);
+        text-align: justify;
+        place-self: center;
+        max-inline-size: calc(var(--max-width) * 3 * 1ch);
+      }
 
-                  article {
-                    display: grid;
-                    gap: var(--sm-spacer);
-                    text-align: justify;
-                    place-self: center;
-                    max-inline-size: calc(var(--max-width) * 3 * 1ch);
-                  }
+      ul,
+      ol {
+        list-style-position: inside;
+      }
 
-                  ul,
-                  ol {
-                    list-style-position: inside;
-                  }
+      li {
+        margin-inline: calc(var(--md-spacer) * 2);
 
-                  li {
-                    margin-inline: calc(var(--md-spacer) * 2);
-                  }
+        & + li {
+          margin-block-start: var(--md-spacer);
+        }
+      }
 
-                  li + li {
-                    margin-block-start: var(--md-spacer);
-                  }
+      footer {
+        border-block-start: 1px dashed var(--accent-color);
+      }
 
-                  footer {
-                    border-block-start: 1px dashed var(--accent-color);
-                  }
+      a[href*="edit"] {
+        color: currentcolor;
+        text-decoration: none;
+        cursor: text;
+      }
 
-                  a[href*="edit"] {
-                    color: currentcolor;
-                    text-decoration: none;
-                    cursor: text;
-                  }
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: var(--bg-color);
+          background-color: var(--txt-color);
+          background-image: linear-gradient(
+            165deg,
+            var(--accent-color) 50%,
+            var(--txt-color) 50.1%
+          );
+        }
 
-                  @media (prefers-color-scheme: dark) {
-                    /* ::selection {
-            					color: var(--accent-color);
-            					background-color: var(--bg-color);
-            				} */
-
-                    body {
-                      color: var(--bg-color);
-                      background-color: var(--txt-color);
-                      background-image: linear-gradient(
-                        165deg,
-                        var(--accent-color) 50%,
-                        var(--txt-color) 50.1%
-                      );
-                    }
-
-                    :is(main, footer) a:is(:active, :hover, :focus-visible) {
-                      background-color: var(--txt-color);
-                    }
-                  }
+        :is(main, footer) a:is(:active, :hover, :focus-visible) {
+          background-color: var(--txt-color);
+        }
+      }
     </style>
     <script defer src="/_vercel/insights/script.js"></script>
     <meta
@@ -405,7 +401,7 @@
             <a href="https://www.linkedin.com/feed/hashtag/?keywords=pakcon2023"
               >social media campaign</a
             >
-            I'm proud of leading.
+            I led.
             <a href="https://www.linkedin.com/in/ronny-shani/">Contact me</a>
             for more references.
           </li>
@@ -447,7 +443,7 @@
             <p>
               Fifty million websites worldwide use Google’s font library. A
               recent court ruling in Germany might change that. What you need to
-              know — and do — to host fonts locally and avoid fines
+              know—and do—to host fonts locally and avoid fines
             </p>
           </li>
           <li>
