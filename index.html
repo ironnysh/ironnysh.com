@@ -23,7 +23,7 @@
       :root {
         --sfont: ui-sans-serif, -apple-system, system-ui;
         --hfont: "Recoleta Regular";
-        --txt-color: hsl(50 0% 0%);
+        --txt-color: hsl(50 0% 5%);
         --accent-color: hsl(50 100% 50%);
         --bg-color: hsl(50 45% 95%);
         --sm-spacer: 0.5rem;
@@ -240,14 +240,17 @@
           background-color: var(--txt-color);
           background-image: linear-gradient(
             165deg,
-            var(--accent-color) 50%,
+            hsl(0, 100%, 20%) 50%,
             var(--txt-color) 50.1%
           );
         }
 
-        :is(main, footer) a:is(:active, :hover, :focus-visible) {
+        :is(main, footer) a:is(:active, :focus-visible) {
           background-color: var(--txt-color);
         }
+        
+        article a {
+          background: linear-gradient(to right, hsl(0, 100%, 50%) 50%, transparent 50%);
       }
     </style>
     <script defer src="/_vercel/insights/script.js"></script>
