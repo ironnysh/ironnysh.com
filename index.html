@@ -64,13 +64,22 @@
           U+2212, U+2215, U+FEFF, U+FFFD;
       }
 
+      @font-face {
+        font-family: 'Adjusted-Arial-Fallback';
+        size-adjust: 90%;
+        ascent-override: 103%;
+        descent-override: 32%;
+        line-gap-override: 0%;
+        src: local(Arial);
+      }
+
       html {
         scroll-behavior: smooth;
         block-size: 100%;
       }
 
       body {
-        font-family: "Fira Sans Condensed", var(--sfont);
+        font-family: "Fira Sans Condensed", "Adjusted-Arial-Fallback", var(--sfont);
         font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
         text-rendering: optimizeSpeed;
         line-height: 1.6;
