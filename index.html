@@ -65,7 +65,7 @@
       }
 
       @font-face {
-        font-family: 'Adjusted-Arial-Fallback';
+        font-family: "Adjusted-Arial-Fallback";
         size-adjust: 90%;
         ascent-override: 103%;
         descent-override: 32%;
@@ -79,7 +79,8 @@
       }
 
       body {
-        font-family: "Fira Sans Condensed", "Adjusted-Arial-Fallback", var(--sfont);
+        font-family: "Fira Sans Condensed", "Adjusted-Arial-Fallback",
+          var(--sfont);
         font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
         text-rendering: optimizeSpeed;
         line-height: 1.6;
@@ -193,6 +194,21 @@
         gap: var(--sm-spacer);
         text-align: justify;
         place-self: center;
+      }
+
+      article a {
+        background: linear-gradient(
+          to right,
+          hsl(50, 100%, 80%) 50%,
+          transparent 50%
+        );
+        background-size: 205% 100%;
+        background-position: right bottom;
+        transition: background-position 0.35s ease;
+      }
+
+      article a:hover {
+        background-position: left bottom;
       }
 
       ul,
