@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Ronny Shani • Writer and Web Maker</title>
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href="assets/recoleta-regular.woff2"
-			crossorigin
-		/>
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href="assets/fira-sans-condensed.woff2"
-			crossorigin
-		/>
+		<link rel="preload" as="font" type="font/woff2" href="assets/recoleta-regular.woff2" crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href="assets/fira-sans-condensed.woff2" crossorigin />
 
 		<style>
 			:root {
-				--sfont: ui-sans-serif, -apple-system, system-ui;
-				--hfont: "Recoleta Regular";
-				--txt-color: hsl(50 0% 5%);
-				--accent-color: hsl(50 100% 50%);
-				--bg-color: hsl(50 45% 95%);
+				--system-font: ui-sans-serif, -apple-system, system-ui;
+				--heading-font: "Recoleta Regular";
 				--sm-spacer: 0.5rem;
 				--md-spacer: calc(var(--sm-spacer) * 2);
 				--max-width: 20;
 				--border: thick solid currentColor;
+
+				--bg-color: oklch(96% 0.01 95);
+				--txt-color: oklch(22% 0 95);
+				--accent-color: oklch(87% 0.2 95);
+				--dark-accent-color: oklch(40% 0.15 10);
+
+				--switch-accent-color: light-dark(var(--accent-color), var(--dark-accent-color));
+				--text: light-dark(var(--txt-color), var(--bg-color));
+				--surface: light-dark(var(--bg-color), var(--txt-color));
+
 			}
 
 			::selection {
-				color: var(--bg-color);
-				background-color: var(--txt-color);
+				color: var(--text);
+				background-color: var(--switch-accent-color);
 			}
 
 			*,
@@ -80,18 +76,16 @@
 
 			body {
 				font-family: "Fira Sans Condensed", "Adjusted-Arial-Fallback",
-					var(--sfont);
+					var(--system-font);
 				font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
 				text-rendering: optimizeSpeed;
 				line-height: 1.6;
-				color: var(--txt-color);
-				background-image: linear-gradient(
-					165deg,
-					var(--accent-color) 50%,
-					var(--bg-color) 50.1%
-				);
+				color: var(--text);
+				background-image: linear-gradient(165deg,
+						var(--switch-accent-color) 25%, oklch(90.5% 0.1 90) 25%,
+						transparent 50.1%);
 				background-repeat: no-repeat;
-				background-color: var(--bg-color);
+				background-color: var(--surface);
 				margin: 0 auto;
 				padding: 0;
 				min-block-size: 100dvh;
@@ -109,17 +103,18 @@
 
 			a:not(:has(svg)) {
 				color: inherit;
-				font-family: var(--hfont);
+				font-family: var(--heading-font);
 
 				&:active,
 				:hover {
-					color: var(--accent-color);
-					background-color: var(--bg-color);
+					color: var(--switch-accent-color);
+					background-color: var(--text);
 				}
+
 				&:focus-visible {
-					outline: 0.3ex solid var(--accent-color);
+					outline: 0.3ex solid var(--switch-accent-color);
 					border-radius: var(--sm-spacer);
-					background-color: var(--bg-color);
+					background-color: var(--surface);
 				}
 			}
 
@@ -145,9 +140,9 @@
 				stroke-linejoin: round;
 			}
 
-			header > *,
+			header>*,
 			:is(h1, h2, h3) {
-				font-family: var(--hfont);
+				font-family: var(--heading-font);
 				font-weight: initial;
 			}
 
@@ -191,17 +186,15 @@
 
 			article {
 				display: grid;
-				gap: var(--sm-spacer);
+				gap: var(--md-spacer);
 				text-align: justify;
 				place-self: center;
 			}
 
 			article a {
-				background-image: linear-gradient(
-					to right,
-					hsl(50, 100%, 80%) 50%,
-					transparent 50%
-				);
+				background-image: linear-gradient(to right,
+						var(--switch-accent-color) 50%,
+						transparent 50%);
 				background-size: 200% 100%;
 				background-position: right bottom;
 				transition: background-position 0.35s ease;
@@ -216,80 +209,58 @@
 				list-style-position: inside;
 			}
 
+			ul:last-of-type {
+				list-style-type: none;
+			}
+
 			li {
 				margin-inline: calc(var(--md-spacer) * 2);
 
-				& + li {
+				&+li {
 					margin-block-start: var(--md-spacer);
 				}
 			}
 
 			footer {
-				border-block-start: 1px dashed var(--accent-color);
+				border-block-start: 1px dashed var(--switch-accent-color);
 			}
 
 			a[href*="edit"] {
 				color: currentcolor;
 				text-decoration: none;
-				cursor: text;
+				cursor: grabbing;
 			}
 
 			@media (prefers-color-scheme: dark) {
 				body {
-					color: var(--bg-color);
-					background-color: var(--txt-color);
-					background-image: linear-gradient(
-						165deg,
-						hsl(0, 100%, 20%) 50%,
-						var(--txt-color) 50.1%
-					);
+					background-image: linear-gradient(165deg,
+							var(--switch-accent-color) 25%, oklch(25% 0.11 200) 25%,
+							transparent 50.1%);
 				}
 
-				:is(main, footer) a:is(:active, :focus-visible) {
-					background-color: var(--txt-color);
-				}
-				
-				article a {
-					background-image: linear-gradient(to right, hsl(0, 100%, 50%) 50%, transparent 50%);
 			}
 		</style>
-		<meta
-			name="description"
-			content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples"
-		/>
+		<meta name="description"
+			content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples" />
 		<meta name="generator" content="Handmade by Ronny Shani" />
 		<meta name="author" content="Ronny Shani" />
 		<meta name="color-scheme" content="light dark" />
 		<link rel="canonical" href="http://www.ironnysh.com/" />
 
 		<!-- SEO -->
-		<meta
-			name="twitter:title"
-			property="og:title"
-			content="Ronny Shani • Writer & Web Maker"
-		/>
-		<meta
-			name="description"
-			property="og:description"
-			content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples"
-		/>
+		<meta name="twitter:title" property="og:title" content="Ronny Shani • Writer & Web Maker" />
+		<meta name="description" property="og:description"
+			content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples" />
 		<meta property="twitter:card" content="summary" />
 		<meta property="og:type" content="website" />
-		<meta
-			name="twitter:url"
-			property="og:url"
-			content="http://www.ironnysh.com/"
-		/>
+		<meta name="twitter:url" property="og:url" content="http://www.ironnysh.com/" />
 
-		<link
-			rel="icon"
-			href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+		<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
 <style>svg{background:transparent;}</style>
 <circle style='fill:hsl(0 0% 0%);' cx='50' cy='50' r='50'/>
 <circle style='fill:hsl(30 100% 95%);' cx='50' cy='50' r='45'/>
 <circle style='fill:hsl(50 100% 50%);' cx='50' cy='50' r='40'/>
-</svg>"
-		/>
+</svg>" />
 	</head>
 
 	<body>
@@ -297,89 +268,56 @@
 			<h1>Ronny Shani</h1>
 			<p>Word Engineer</p>
 			<nav>
-				<a
-					href="mailto:ronnyshani@gmail.com?subject=Found%20your%20site"
-					aria-label="Click the icon or type my email address (ronnyshani@gmail.com) to open your favorite email app, write me a freshly composed message, and hit send!"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 72 72"
-						aria-hidden="true"
-						title="Email me"
-					>
-						<path
-							d="m28 37-4 4-1.33-.44-11.215 10.33c-.35-.62-.57-1.44-.57-2.32V22.06L28 37z"
-						></path>
-						<path
-							fill="#9B9B9A"
-							d="M60.825 22.01v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478l-1.029.058-4.064-3.806 16.96-14.72z"
-						></path>
+				<a href="mailto:ronnyshani@gmail.com?subject=Found%20your%20site"
+					aria-label="Click the icon or type my email address (ronnyshani@gmail.com) to open your favorite email app, write me a freshly composed message, and hit send!">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" aria-hidden="true" title="Email me">
+						<path d="m28 37-4 4-1.33-.44-11.215 10.33c-.35-.62-.57-1.44-.57-2.32V22.06L28 37z"></path>
+						<path fill="#9B9B9A"
+							d="M60.825 22.01v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478l-1.029.058-4.064-3.806 16.96-14.72z"></path>
 						<path fill="none" d="m11.521 21.649-.063-.039"></path>
 						<path
-							d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15"
-						></path>
+							d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15">
+						</path>
+						<path stroke-miterlimit="10" stroke-width="1.8"
+							d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15 15.41 14.11c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l15.35-14.14">
+						</path>
 						<path
-							stroke-miterlimit="10"
-							stroke-width="1.8"
-							d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15 15.41 14.11c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l15.35-14.14"
-						></path>
+							d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126">
+						</path>
 						<path
-							d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126"
-						></path>
-						<path
-							d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z"
-						></path>
+							d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z">
+						</path>
 						<g fill="none" stroke-miterlimit="10" stroke-width="2">
 							<path
-								d="M22.67 40.56 11.455 50.89c-.35-.62-.57-1.44-.57-2.32V22.06m49.94-.05v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478M11.521 21.649l-.063-.039m15.347 15.14 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15"
-							></path>
+								d="M22.67 40.56 11.455 50.89c-.35-.62-.57-1.44-.57-2.32V22.06m49.94-.05v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478M11.521 21.649l-.063-.039m15.347 15.14 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15">
+							</path>
 							<path
-								d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126"
-							></path>
+								d="M47.93 39.536 60.274 50.84c-.42.77-1.07 1.27-1.79 1.27h-45.26c-.7 0-1.34-.47-1.77-1.22l12.078-11.126">
+							</path>
 							<path
-								d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z"
-							></path>
+								d="m60.825 22.01-15.96 14.72-4.5 4.15c-.22.2-.46.4-.69.56-2.42 1.81-5.25 1.81-7.68.01-.24-.16-.48-.35-.72-.57l-4.47-4.13-15.92-14.69c.04-.06.09-.13.14-.2.42-.6.99-.96 1.61-.96h46.48c.59 0 1.16.35 1.57.91.05.06.1.13.14.2z">
+							</path>
 						</g>
 					</svg>
 				</a>
-				<a
-					href="https://www.linkedin.com/in/ronny-shani/"
-					aria-label="Let's connect on LinkedIn"
-				>
-					<svg
-						viewBox="0 0 400 400"
-						xmlns="http://www.w3.org/2000/svg"
-						aria-hidden="true"
-						title="Let's connect on LinkedIn"
-					>
+				<a href="https://www.linkedin.com/in/ronny-shani/" aria-label="Let's connect on LinkedIn">
+					<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+						title="Let's connect on LinkedIn">
 						<path
-							d="M101.233 269.812c-.169-20.569-10.431-148.104-1.751-162.388 3.971-6.536 184.116-19.555 196.086-.401 11.97 19.153 11.97 184.236-5.021 190.915-25.318 9.952-137.542 2.61-171.903 0"
-						/>
+							d="M101.233 269.812c-.169-20.569-10.431-148.104-1.751-162.388 3.971-6.536 184.116-19.555 196.086-.401 11.97 19.153 11.97 184.236-5.021 190.915-25.318 9.952-137.542 2.61-171.903 0" />
 						<path
 							d="M152 251c2.25-23.321 0-46.638 0-70M151 152c0-2.29 1-1.098 1-3M192 181c-1.522 22.876-.854 46.015-.854 69M192 200.435c0-9.897 12.438-17.896 19.503-19.657 45.322-11.295 42.591 11.929 40.589 68.222"
-							stroke-width="var(--md-spacer)"
-						/></svg
-				></a>
-				<a
-					href="https://github.com/ironnysh"
-					aria-label="Browse my code on GitHub"
-				>
-					<svg
-						viewBox="0 0 72 72"
-						xmlns="http://www.w3.org/2000/svg"
-						aria-hidden="true"
-						title="Browse my code on GitHub"
-					>
+							stroke-width="var(--md-spacer)" />
+					</svg></a>
+				<a href="https://github.com/ironnysh" aria-label="Browse my code on GitHub">
+					<svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+						title="Browse my code on GitHub">
 						<path
-							d="M29.044 61.611c0-.927-.035-3.98-.035-7.764 0-2.647.874-4.373 1.863-5.253-6.227-.721-12.779-3.153-12.779-14.034 0-3.098 1.096-5.632 2.887-7.615-.286-.72-1.253-3.606.278-7.514 0 0 2.355-.764 7.716 2.908 2.238-.628 4.638-.946 7.027-.951 2.384.005 4.785.323 7.027.951 5.357-3.672 7.711-2.908 7.711-2.908 1.532 3.908.57 6.795.278 7.514 1.796 1.983 2.882 4.514 2.882 7.615 0 10.905-6.56 13.307-12.817 14.008 1.013.882 1.909 2.611 1.909 5.263 0 3.792-.035 6.85-.035 7.78 0 .762.505 1.641 1.93 1.369 11.145-3.758 19.177-14.396 19.177-26.932 0-15.678-12.567-28.388-28.067-28.388-15.494 0-28.06 12.707-28.06 28.388 0 12.541 8.04 23.182 19.202 26.934 1.395.262 1.906-.614 1.906-1.37z"
-						/>
+							d="M29.044 61.611c0-.927-.035-3.98-.035-7.764 0-2.647.874-4.373 1.863-5.253-6.227-.721-12.779-3.153-12.779-14.034 0-3.098 1.096-5.632 2.887-7.615-.286-.72-1.253-3.606.278-7.514 0 0 2.355-.764 7.716 2.908 2.238-.628 4.638-.946 7.027-.951 2.384.005 4.785.323 7.027.951 5.357-3.672 7.711-2.908 7.711-2.908 1.532 3.908.57 6.795.278 7.514 1.796 1.983 2.882 4.514 2.882 7.615 0 10.905-6.56 13.307-12.817 14.008 1.013.882 1.909 2.611 1.909 5.263 0 3.792-.035 6.85-.035 7.78 0 .762.505 1.641 1.93 1.369 11.145-3.758 19.177-14.396 19.177-26.932 0-15.678-12.567-28.388-28.067-28.388-15.494 0-28.06 12.707-28.06 28.388 0 12.541 8.04 23.182 19.202 26.934 1.395.262 1.906-.614 1.906-1.37z" />
 						<g>
 							<path
-								d="M29.044 61.611c0-.927-.035-3.98-.035-7.764 0-2.647.874-4.373 1.863-5.253-6.227-.721-12.779-3.153-12.779-14.034 0-3.098 1.096-5.632 2.887-7.615-.286-.72-1.253-3.606.278-7.514 0 0 2.355-.764 7.716 2.908 2.238-.628 4.638-.946 7.027-.951 2.384.005 4.785.323 7.027.951 5.357-3.672 7.711-2.908 7.711-2.908 1.532 3.908.57 6.795.278 7.514 1.796 1.983 2.882 4.514 2.882 7.615 0 10.905-6.56 13.307-12.817 14.008 1.013.882 1.909 2.611 1.909 5.263 0 3.792-.035 6.85-.035 7.78 0 .762.505 1.641 1.93 1.369 11.145-3.758 19.177-14.396 19.177-26.932 0-15.678-12.567-28.388-28.067-28.388-15.494 0-28.06 12.707-28.06 28.388 0 12.541 8.04 23.182 19.202 26.934 1.395.262 1.906-.614 1.906-1.37z"
-							/>
-							<path
-								d="M16.29 48.09c2.568.78 3.58 1.635 4.789 3.661 1.205 2.026 2.62 4.287 7.933 2.999"
-							/>
+								d="M29.044 61.611c0-.927-.035-3.98-.035-7.764 0-2.647.874-4.373 1.863-5.253-6.227-.721-12.779-3.153-12.779-14.034 0-3.098 1.096-5.632 2.887-7.615-.286-.72-1.253-3.606.278-7.514 0 0 2.355-.764 7.716 2.908 2.238-.628 4.638-.946 7.027-.951 2.384.005 4.785.323 7.027.951 5.357-3.672 7.711-2.908 7.711-2.908 1.532 3.908.57 6.795.278 7.514 1.796 1.983 2.882 4.514 2.882 7.615 0 10.905-6.56 13.307-12.817 14.008 1.013.882 1.909 2.611 1.909 5.263 0 3.792-.035 6.85-.035 7.78 0 .762.505 1.641 1.93 1.369 11.145-3.758 19.177-14.396 19.177-26.932 0-15.678-12.567-28.388-28.067-28.388-15.494 0-28.06 12.707-28.06 28.388 0 12.541 8.04 23.182 19.202 26.934 1.395.262 1.906-.614 1.906-1.37z" />
+							<path d="M16.29 48.09c2.568.78 3.58 1.635 4.789 3.661 1.205 2.026 2.62 4.287 7.933 2.999" />
 						</g>
 					</svg>
 				</a>
@@ -401,11 +339,10 @@
 				</p>
 
 				<h2>Writing Samples</h2>
-				<ol>
+				<ul>
 					<li>
-						<a href="https://wptavern.com/author/ironnysh"
-							>My articles on WP Tavern</a
-						>, an online magazine dedicated to all things WordPress.
+						<a href="https://wptavern.com/author/ironnysh">My articles on WP Tavern</a>, an online magazine dedicated to
+						all things WordPress.
 					</li>
 					<li>
 						All the tech articles I’ve
@@ -415,41 +352,27 @@
 					</li>
 					<li>
 						My open-source contributions include
-						<a
-							href="https://github.com/WordPress/Learn/issues?q=assignee%3A%40me+is%3Aclosed"
-							>video lessons</a
-						>
+						<a href="https://github.com/WordPress/Learn/issues?q=assignee%3A%40me+is%3Aclosed">video lessons</a>
 						for Learn WordPress,
 						<a
-							href="https://developer.wordpress.org/news/2024/04/25/how-to-use-wordpress-playground-for-interactive-demos/"
-							>tutorials</a
-						>
+							href="https://developer.wordpress.org/news/2024/04/25/how-to-use-wordpress-playground-for-interactive-demos/">tutorials</a>
 						published on the Developer Blog, and
-						<a
-							href="https://github.com/WordPress/wordpress-playground/issues?q=mentions%3A%40me+is%3Aclosed"
-							>developer documentation</a
-						>
+						<a href="https://github.com/WordPress/wordpress-playground/issues?q=mentions%3A%40me+is%3Aclosed">developer
+							documentation</a>
 						for the Playground project (see also
-						<a
-							href="https://github.com/WordPress/playground-tools/issues?q=mentions%3A%40me+is%3Aclosed"
-							>Playground Tools</a
-						>
+						<a href="https://github.com/WordPress/playground-tools/issues?q=mentions%3A%40me+is%3Aclosed">Playground
+							Tools</a>
 						and the
-						<a
-							href="https://github.com/WordPress/blueprints/issues?q=mentions%3A%40me+is%3Aclosed"
-							>Blueprints Gallery</a
-						>).
+						<a href="https://github.com/WordPress/blueprints/issues?q=mentions%3A%40me+is%3Aclosed">Blueprints
+							Gallery</a>).
 					</li>
 					<li>
 						Case studies, marketing-focused
 						<a
-							href="https://medium.com/@valvespace/introducing-the-api-that-unlocks-flexible-work-d045efaaf8"
-							>content</a
-						>, and a few copy examples
+							href="https://medium.com/@valvespace/introducing-the-api-that-unlocks-flexible-work-d045efaaf8">content</a>,
+						and a few copy examples
 						<a href="https://inside.project-a.com">are here</a>. There’s also a
-						<a href="https://www.linkedin.com/feed/hashtag/?keywords=pakcon2023"
-							>social media campaign</a
-						>
+						<a href="https://www.linkedin.com/feed/hashtag/?keywords=pakcon2023">social media campaign</a>
 						I led.
 						<a href="https://www.linkedin.com/in/ronny-shani/">Contact me</a>
 						for more references.
@@ -460,7 +383,7 @@
 						<a href="http://github.com/ironnysh">are available on Github</a>.
 						<small>Note that most of my work in this area is not public.</small>
 					</li>
-				</ol>
+				</ul>
 
 				<p>
 					The articles below demonstrate versatile writing styles and interests.
@@ -469,9 +392,7 @@
 				<ul>
 					<li>
 						<h3>
-							<a
-								href="https://insights.project-a.com/run-an-e-commerce-app-on-google-sheets/"
-							>
+							<a href="https://insights.project-a.com/run-an-e-commerce-app-on-google-sheets/">
 								Run an E-Commerce App on Google Sheets
 							</a>
 						</h3>
@@ -483,9 +404,7 @@
 					</li>
 					<li>
 						<h3>
-							<a
-								href="https://insights.project-a.com/the-court-says-dont-use-google-fonts/"
-							>
+							<a href="https://insights.project-a.com/the-court-says-dont-use-google-fonts/">
 								The Court Says, Don’t Use Google Fonts. What To Do Instead?
 							</a>
 						</h3>
@@ -497,9 +416,7 @@
 					</li>
 					<li>
 						<h3>
-							<a
-								href="https://insights.project-a.com/the-secret-to-successful-exit-software-audit/"
-							>
+							<a href="https://insights.project-a.com/the-secret-to-successful-exit-software-audit/">
 								The Secret to Successful Exit: Software Audit
 							</a>
 						</h3>
@@ -552,12 +469,8 @@
 				<a href="assets/rss-subs.opml" download>RSS feed</a> or
 				<a href="assets/podcasts-subs.opml" download>podcasts I follow</a>.
 				Click the links above to download the relevant OPML file.
-				<a
-					href="https://github.com/ironnysh/ironnysh.com/edit/main/index.html"
-					target="_blank"
-					rel="noopener external"
-					>✪</a
-				>
+				<a href="https://github.com/ironnysh/ironnysh.com/edit/main/index.html" target="_blank"
+					rel="noopener external">✪</a>
 			</p>
 		</footer>
 		<script>
@@ -576,4 +489,5 @@
 			}
 		</script>
 	</body>
+
 </html>
