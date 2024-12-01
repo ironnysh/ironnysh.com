@@ -101,20 +101,40 @@
 				margin: 0 auto;
 			}
 
-			a:not(:has(svg)) {
+			a:not(:has(svg)):not(a[href*="edit"]) {
 				color: inherit;
 				font-family: var(--heading-font);
+				background-image: linear-gradient(to right,
+						var(--switch-accent-color) 50%,
+						transparent 50%);
+				background-size: 200% 100%;
+				background-position: right bottom;
+				transition: background-position 0.35s ease;
 
-				&:active,
-				:hover {
-					color: var(--switch-accent-color);
-					background-color: var(--text);
+				&:is(:active,:hover, :focus-visible):not(a[href*="edit"]) {
+					background-position: left bottom;
 				}
 
 				&:focus-visible {
-					outline: 0.3ex solid var(--switch-accent-color);
+					outline: 0.2ex solid currentColor;
 					border-radius: var(--sm-spacer);
-					background-color: var(--surface);
+					text-decoration: none;
+					outline-offset: .3ex;
+					animation: outline-bounce .5s;
+				}
+			}
+
+			@keyframes outline-bounce {
+				0% {
+					outline-offset: .25rem
+				}
+
+				50% {
+					outline-offset: .5rem
+				}
+
+				100% {
+					outline-offset: .25rem
 				}
 			}
 
@@ -144,6 +164,7 @@
 			:is(h1, h2, h3) {
 				font-family: var(--heading-font);
 				font-weight: initial;
+				font-variant-ligatures: no-common-ligatures;
 			}
 
 			nav a {
@@ -191,19 +212,6 @@
 				place-self: center;
 			}
 
-			article a {
-				background-image: linear-gradient(to right,
-						var(--switch-accent-color) 50%,
-						transparent 50%);
-				background-size: 200% 100%;
-				background-position: right bottom;
-				transition: background-position 0.35s ease;
-			}
-
-			article a:hover {
-				background-position: left bottom;
-			}
-
 			ul,
 			ol {
 				list-style-position: inside;
@@ -241,7 +249,7 @@
 			}
 		</style>
 		<meta name="description"
-			content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples" />
+			content="Writer, editor, and web maker. Check out my writing samples" />
 		<meta name="generator" content="Handmade by Ronny Shani" />
 		<meta name="author" content="Ronny Shani" />
 		<meta name="color-scheme" content="light dark" />
@@ -273,7 +281,8 @@
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" aria-hidden="true" title="Email me">
 						<path d="m28 37-4 4-1.33-.44-11.215 10.33c-.35-.62-.57-1.44-.57-2.32V22.06L28 37z"></path>
 						<path fill="#9B9B9A"
-							d="M60.825 22.01v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478l-1.029.058-4.064-3.806 16.96-14.72z"></path>
+							d="M60.825 22.01v26.56c0 .86-.2 1.65-.55 2.27L48.958 40.478l-1.029.058-4.064-3.806 16.96-14.72z">
+						</path>
 						<path fill="none" d="m11.521 21.649-.063-.039"></path>
 						<path
 							d="m26.805 36.75 4.47 4.13c.24.22.48.41.72.57 2.43 1.8 5.26 1.8 7.68-.01.23-.16.47-.36.69-.56l4.5-4.15">
@@ -341,7 +350,8 @@
 				<h2>Writing Samples</h2>
 				<ul>
 					<li>
-						<a href="https://wptavern.com/author/ironnysh">My articles on WP Tavern</a>, an online magazine dedicated to
+						<a href="https://wptavern.com/author/ironnysh">My articles on WP Tavern</a>, an online magazine
+						dedicated to
 						all things WordPress.
 					</li>
 					<li>
@@ -352,12 +362,14 @@
 					</li>
 					<li>
 						My open-source contributions include
-						<a href="https://github.com/WordPress/Learn/issues?q=assignee%3A%40me+is%3Aclosed">video lessons</a>
+						<a href="https://github.com/WordPress/Learn/issues?q=assignee%3A%40me+is%3Aclosed">video
+							lessons</a>
 						for Learn WordPress,
 						<a
 							href="https://developer.wordpress.org/news/2024/04/25/how-to-use-wordpress-playground-for-interactive-demos/">tutorials</a>
 						published on the Developer Blog, and
-						<a href="https://github.com/WordPress/wordpress-playground/issues?q=mentions%3A%40me+is%3Aclosed">developer
+						<a
+							href="https://github.com/WordPress/wordpress-playground/issues?q=mentions%3A%40me+is%3Aclosed">developer
 							documentation</a>
 						for the Playground project (see also
 						<a href="https://github.com/WordPress/playground-tools/issues?q=mentions%3A%40me+is%3Aclosed">Playground
@@ -470,7 +482,7 @@
 				<a href="assets/podcasts-subs.opml" download>podcasts I follow</a>.
 				Click the links above to download the relevant OPML file.
 				<a href="https://github.com/ironnysh/ironnysh.com/edit/main/index.html" target="_blank"
-					rel="noopener external">✪</a>
+					rel="noopener external" tabindex="-1">✪</a>
 			</p>
 		</footer>
 		<script>
