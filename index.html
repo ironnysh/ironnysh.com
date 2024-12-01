@@ -165,6 +165,7 @@
 				font-family: var(--heading-font);
 				font-weight: initial;
 				font-variant-ligatures: no-common-ligatures;
+				letter-spacing: -.02em;
 			}
 
 			nav a {
@@ -227,6 +228,9 @@
 				&+li {
 					margin-block-start: var(--md-spacer);
 				}
+				&:not(:has(h3))::marker {
+					content: "‣";
+}
 			}
 
 			footer {
@@ -247,6 +251,7 @@
 				}
 
 			}
+			
 		</style>
 		<meta name="description"
 			content="Writer, editor, and web maker. Check out my writing samples" />
@@ -482,7 +487,7 @@
 				<a href="assets/podcasts-subs.opml" download>podcasts I follow</a>.
 				Click the links above to download the relevant OPML file.
 				<a href="https://github.com/ironnysh/ironnysh.com/edit/main/index.html" target="_blank"
-					rel="noopener external" tabindex="-1">✪</a>
+					rel="noopener external" tabindex="-1" aria-hidden="true">✪</a>
 			</p>
 		</footer>
 		<script>
