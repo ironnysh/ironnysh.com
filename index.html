@@ -19,13 +19,13 @@
 
 				--bg-color: oklch(96% 0.01 95);
 				--txt-color: oklch(22% 0 95);
-				--accent-color: oklch(87% 0.2 95);
-				--dark-accent-color: oklch(40% 0.15 10);
+				--accent-color: oklch(87% 0.2 95); /* bright yellow */
+				--dark-accent-color: oklch(40% 0.15 10); /* magenta */
 
 				--switch-accent-color: light-dark(var(--accent-color), var(--dark-accent-color));
+				--switch-gradient-color: light-dark(oklch(90.5% 0.1 90), oklch(25% 0.11 200)); /* pale yellow to teal */
 				--text: light-dark(var(--txt-color), var(--bg-color));
 				--surface: light-dark(var(--bg-color), var(--txt-color));
-
 			}
 
 			::selection {
@@ -82,7 +82,7 @@
 				line-height: 1.6;
 				color: var(--text);
 				background-image: linear-gradient(165deg,
-						var(--switch-accent-color) 25%, oklch(90.5% 0.1 90) 25%,
+						var(--switch-accent-color) 25%, var(--switch-gradient-color) 25%,
 						transparent 50.1%);
 				background-repeat: no-repeat;
 				background-color: var(--surface);
@@ -241,15 +241,6 @@
 				color: currentcolor;
 				text-decoration: none;
 				cursor: grabbing;
-			}
-
-			@media (prefers-color-scheme: dark) {
-				body {
-					background-image: linear-gradient(165deg,
-							var(--switch-accent-color) 25%, oklch(25% 0.11 200) 25%,
-							transparent 50.1%);
-				}
-
 			}
 			
 		</style>
