@@ -19,11 +19,14 @@
 
 				--bg-color: oklch(96% 0.01 95);
 				--txt-color: oklch(22% 0 95);
-				--accent-color: oklch(87% 0.2 95); /* bright yellow */
-				--dark-accent-color: oklch(40% 0.15 10); /* magenta */
+				--accent-color: oklch(87% 0.2 95);
+				/* bright yellow */
+				--dark-accent-color: oklch(40% 0.15 10);
+				/* magenta */
 
 				--switch-accent-color: light-dark(var(--accent-color), var(--dark-accent-color));
-				--switch-gradient-color: light-dark(oklch(90.5% 0.1 90), oklch(25% 0.11 200)); /* pale yellow to teal */
+				--switch-gradient-color: light-dark(oklch(90.5% 0.1 90), oklch(25% 0.11 200));
+				/* pale yellow to teal */
 				--text: light-dark(var(--txt-color), var(--bg-color));
 				--surface: light-dark(var(--bg-color), var(--txt-color));
 			}
@@ -92,13 +95,13 @@
 				border-block: var(--border);
 			}
 
-			:is(article, footer) {
-				max-inline-size: calc(var(--max-width) * 3 * 1ch);
-			}
-
 			:is(main, footer) {
 				padding: var(--md-spacer);
 				margin: 0 auto;
+			}
+
+			:is(article, footer) {
+				max-inline-size: calc(var(--max-width) * 3 * 1ch);
 			}
 
 			a:not(:has(svg)):not(a[href*="edit"]) {
@@ -111,7 +114,7 @@
 				background-position: right bottom;
 				transition: background-position 0.35s ease;
 
-				&:is(:active,:hover, :focus-visible):not(a[href*="edit"]) {
+				&:is(:active, :hover, :focus-visible):not(a[href*="edit"]) {
 					background-position: left bottom;
 				}
 
@@ -160,26 +163,27 @@
 				stroke-linejoin: round;
 			}
 
-			header>*,
-			:is(h1, h2, h3) {
+			:is(h1, h2, h3, header > p) {
 				font-family: var(--heading-font);
 				font-weight: initial;
 				font-variant-ligatures: no-common-ligatures;
 				letter-spacing: -.02em;
 			}
 
-			nav a {
-				display: inline-block;
-				filter: brightness(80%);
+			nav {
+				a {
+					display: inline-block;
+					filter: brightness(80%);
 
-				&:is(:hover, :focus-visible) {
-					filter: brightness(100%);
+					&:is(:hover, :focus-visible) {
+						filter: brightness(100%);
+					}
 				}
-			}
 
-			nav:has(a:hover, a:focus-visible) a:not(:hover, :focus-visible) {
-				filter: brightness(60%);
-				transition: brightness 0.25s ease-in;
+				&:has(a:hover, a:focus-visible) a:not(:hover, :focus-visible) {
+					filter: brightness(60%);
+					transition: brightness 0.25s ease-in;
+				}
 			}
 
 			:is(h1, h2) {
@@ -219,7 +223,7 @@
 			}
 
 			ul:last-of-type {
-				list-style-type: none;
+				list-style-type: "";
 			}
 
 			li {
@@ -228,13 +232,15 @@
 				&+li {
 					margin-block-start: var(--md-spacer);
 				}
+
 				&:not(:has(h3))::marker {
 					content: "‣";
-}
+				}
 			}
 
 			footer {
 				border-block-start: 1px dashed var(--switch-accent-color);
+				border-block-end: var(--sm-spacer) solid;
 			}
 
 			a[href*="edit"] {
@@ -242,14 +248,12 @@
 				text-decoration: none;
 				cursor: grabbing;
 			}
-			
 		</style>
-		<meta name="description"
-			content="Writer, editor, and web maker. Check out my writing samples" />
+		<meta name="description" content="Writer, editor, and web maker. Check out my writing samples" />
 		<meta name="generator" content="Handmade by Ronny Shani" />
 		<meta name="author" content="Ronny Shani" />
 		<meta name="color-scheme" content="light dark" />
-		<link rel="canonical" href="http://www.ironnysh.com/" />
+		<link rel="canonical" href="https://www.ironnysh.com/" />
 
 		<!-- SEO -->
 		<meta name="twitter:title" property="og:title" content="Ronny Shani • Writer & Web Maker" />
@@ -257,7 +261,7 @@
 			content="Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples" />
 		<meta property="twitter:card" content="summary" />
 		<meta property="og:type" content="website" />
-		<meta name="twitter:url" property="og:url" content="http://www.ironnysh.com/" />
+		<meta name="twitter:url" property="og:url" content="https://www.ironnysh.com/" />
 
 		<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
 <style>svg{background:transparent;}</style>
@@ -367,7 +371,7 @@
 						<a
 							href="https://github.com/WordPress/wordpress-playground/issues?q=mentions%3A%40me+is%3Aclosed">developer
 							documentation</a>
-						for the Playground project (see also
+						of the Playground project (see also
 						<a href="https://github.com/WordPress/playground-tools/issues?q=mentions%3A%40me+is%3Aclosed">Playground
 							Tools</a>
 						and the
@@ -388,7 +392,7 @@
 
 					<li>
 						Some technical writing and documentation samples
-						<a href="http://github.com/ironnysh">are available on Github</a>.
+						<a href="https://github.com/ironnysh/docs">are available on GitHub</a>.
 						<small>Note that most of my work in this area is not public.</small>
 					</li>
 				</ul>
@@ -400,7 +404,8 @@
 				<ul>
 					<li>
 						<h3>
-							<a href="http://web.archive.org/web/20240423052818/https://insights.project-a.com/run-an-e-commerce-app-on-google-sheets/">
+							<a
+								href="https://web.archive.org/web/20240423052818/https://insights.project-a.com/run-an-e-commerce-app-on-google-sheets/">
 								Run an E-Commerce App on Google Sheets
 							</a>
 						</h3>
@@ -412,7 +417,8 @@
 					</li>
 					<li>
 						<h3>
-							<a href="http://web.archive.org/web/20240620114330/https://insights.project-a.com/the-court-says-dont-use-google-fonts/">
+							<a
+								href="https://web.archive.org/web/20240620114330/https://insights.project-a.com/the-court-says-dont-use-google-fonts/">
 								The Court Says, Don’t Use Google Fonts. What To Do Instead?
 							</a>
 						</h3>
@@ -424,7 +430,8 @@
 					</li>
 					<li>
 						<h3>
-							<a href="http://web.archive.org/web/20240620114330/https://insights.project-a.com/the-secret-to-successful-exit-software-audit/">
+							<a
+								href="https://web.archive.org/web/20240620114330/https://insights.project-a.com/the-secret-to-successful-exit-software-audit/">
 								The Secret to Successful Exit: Software Audit
 							</a>
 						</h3>
@@ -493,7 +500,7 @@
 				"@type": "WebSite",
 				"name": "Ronny Shani",
 				"description": "Ronny Shani • Writer, editor, and web maker. A great believer in the Oxford comma. Check out my writing samples",
-				"url": "http://www.ironnysh.com/"
+				"url": "https://www.ironnysh.com/"
 			}
 		</script>
 	</body>
