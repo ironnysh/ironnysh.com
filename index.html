@@ -82,13 +82,11 @@
 					var(--system-font);
 				font-size: clamp(var(--md-spacer), -0.5vw + 1.3rem, 1.2rem);
 				text-rendering: optimizeSpeed;
-				line-height: 1.6;
+				line-height: 1.5;
 				color: var(--text);
-				background-image: linear-gradient(165deg,
+				background: linear-gradient(165deg,
 						var(--switch-accent-color) 25%, var(--switch-gradient-color) 25%,
-						transparent 50.1%);
-				background-repeat: no-repeat;
-				background-color: var(--surface);
+						transparent 50.1%) no-repeat var(--surface);
 				margin: 0 auto;
 				padding: 0;
 				min-block-size: 100dvh;
@@ -107,7 +105,7 @@
 			a:not(:has(svg)):not(a[href*="edit"]) {
 				color: inherit;
 				font-family: var(--heading-font);
-				background-image: linear-gradient(to right,
+				background: linear-gradient(to right,
 						var(--switch-accent-color) 50%,
 						transparent 50%);
 				background-size: 200% 100%;
@@ -123,12 +121,14 @@
 					border-radius: var(--sm-spacer);
 					text-decoration: none;
 					outline-offset: .3ex;
-					animation: outline-bounce .5s;
+					animation: focusAnimation .5s;
 				}
 			}
 
-			@keyframes outline-bounce {
-				0% {
+			@keyframes focusAnimation {
+
+				from,
+				to {
 					outline-offset: .25rem
 				}
 
@@ -136,9 +136,6 @@
 					outline-offset: .5rem
 				}
 
-				100% {
-					outline-offset: .25rem
-				}
 			}
 
 			header {
@@ -196,7 +193,7 @@
 			}
 
 			h2 {
-				font-size: 1.1rem;
+				font-size: 1.3rem;
 				margin-block: var(--md-spacer) var(--sm-spacer);
 			}
 
@@ -350,14 +347,14 @@
 				<h2>Writing Samples</h2>
 				<ul>
 					<li>
-						<a href="https://wptavern.com/author/ironnysh">My articles on WP Tavern</a>, an online magazine
-						dedicated to
-						all things WordPress.
+						Some of my technical writing and documentation samples
+						<a href="https://github.com/ironnysh/docs">are available on GitHub</a>.
+						<small>Note that most of my work in this area isn't public.</small>
 					</li>
 					<li>
 						All the tech articles I’ve
 						<a href="https://insights.project-a.com/?s=Ronny+Shani">written</a>
-						and others I edited for Project A are published on the
+						and others I edited for Project A were published on the
 						<a href="https://insights.project-a.com">Insights blog</a>.
 					</li>
 					<li>
@@ -379,6 +376,11 @@
 							Gallery</a>).
 					</li>
 					<li>
+						<a href="https://wptavern.com/author/ironnysh">My articles on WP Tavern</a>, an online magazine
+						dedicated to
+						all things WordPress.
+					</li>
+					<li>
 						Case studies, marketing-focused
 						<a
 							href="https://medium.com/@valvespace/introducing-the-api-that-unlocks-flexible-work-d045efaaf8">content</a>,
@@ -389,12 +391,6 @@
 						<a href="https://www.linkedin.com/in/ronny-shani/">Contact me</a>
 						for more references.
 					</li>
-
-					<li>
-						Some technical writing and documentation samples
-						<a href="https://github.com/ironnysh/docs">are available on GitHub</a>.
-						<small>Note that most of my work in this area is not public.</small>
-					</li>
 				</ul>
 
 				<p>
@@ -404,8 +400,7 @@
 				<ul>
 					<li>
 						<h3>
-							<a
-								href="https://web.archive.org/web/20240423052818/https://insights.project-a.com/run-an-e-commerce-app-on-google-sheets/">
+							<a href="https://insights.project-a.com/run-an-e-commerce-app-on-google-sheets/">
 								Run an E-Commerce App on Google Sheets
 							</a>
 						</h3>
@@ -417,8 +412,7 @@
 					</li>
 					<li>
 						<h3>
-							<a
-								href="https://web.archive.org/web/20240620114330/https://insights.project-a.com/the-court-says-dont-use-google-fonts/">
+							<a href="https://insights.project-a.com/the-court-says-dont-use-google-fonts/">
 								The Court Says, Don’t Use Google Fonts. What To Do Instead?
 							</a>
 						</h3>
@@ -430,8 +424,7 @@
 					</li>
 					<li>
 						<h3>
-							<a
-								href="https://web.archive.org/web/20240620114330/https://insights.project-a.com/the-secret-to-successful-exit-software-audit/">
+							<a href="https://insights.project-a.com/the-secret-to-successful-exit-software-audit/">
 								The Secret to Successful Exit: Software Audit
 							</a>
 						</h3>
@@ -444,7 +437,7 @@
 					<li>
 						<h3>
 							<a href="assets/digitalisation-the_covid-19_vaccine.pdf" download>
-								Digitalization: The Covid-19 Vaccine We’ve All Been Waiting For
+								Digitalization: The Covid-19 Vaccine We’ve Been Waiting For
 							</a>
 						</h3>
 						<p>
